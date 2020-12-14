@@ -4,7 +4,9 @@
     {{ $techpoint->title }}
     {{ $techpoint->coordinates }}
 
-    <div id="map"></div>
+    <div class="main-map">
+        <div id="map"></div>
+    </div>
 
 @endsection
 
