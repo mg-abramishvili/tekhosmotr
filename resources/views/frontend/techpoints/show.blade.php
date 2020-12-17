@@ -11,7 +11,7 @@
 @endsection
 
 @section('scripts')
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=92375077-b48b-4559-ba81-1a740de008fc" type="text/javascript"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=2493318c-8f60-438f-a8be-1cf6ef94a38d" type="text/javascript"></script>
 
     <script>
         ymaps.ready(function () {
