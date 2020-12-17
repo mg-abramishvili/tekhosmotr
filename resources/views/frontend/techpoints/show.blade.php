@@ -4,7 +4,7 @@
     {{ $techpoint->title }}
     {{ $techpoint->coordinates }}
 
-    <div class="main-map">
+    <div class="page-map">
         <div id="map"></div>
     </div>
 
@@ -16,7 +16,7 @@
     <script>
         ymaps.ready(function () {
             var myMap = new ymaps.Map('map', {
-                    center: [54.708235,55.998587],
+                    center: [{{ $techpoint->coordinates }}],
                     zoom: 16
                 }, {
                     searchControlProvider: 'yandex#search'
@@ -29,7 +29,7 @@
 
                 myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
                     hintContent: 'Стоматология доктора Томилиной',
-                    balloonContent: 'Стоматология доктора Томилиной'
+                    balloonContent: 'Стоматология <a href="#">link</a> доктора Томилиной'
                 }, {
                     // Опции.
                     // Необходимо указать данный тип макета.
@@ -37,16 +37,18 @@
                     // Своё изображение иконки метки.
                     iconImageHref: '/img/repairing-service.png',
                     // Размеры метки.
-                    iconImageSize: [69, 68],
+                    iconImageSize: [40, 40],
                     // Смещение левого верхнего угла иконки относительно
                     // её "ножки" (точки привязки).
-                    iconImageOffset: [-45, -38]
+                    iconImageOffset: [-20, -20]
                 })
 
             myMap.geoObjects
                 .add(myPlacemark)
 
             myMap.behaviors.disable('scrollZoom');
+            myMap.controls.remove('searchControl');
+            myMap.controls.remove('trafficControl');
         });
     </script>
 @endsection
