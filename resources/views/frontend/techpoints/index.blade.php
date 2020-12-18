@@ -7,9 +7,11 @@
                 <div class="main-techpoints-list">
                     @foreach($techpoints as $techpoint)
                     <div class="main-techpoints-list-item">
-                        <p class="title">{{ $techpoint->title }}</p>
-                        <span class="tel"></span>
-                        <span class="address"></span>
+                        <a href="/techpoints/{{ $techpoint->id }}">
+                            <p class="title">{{ $techpoint->title }}</p>
+                            <span class="address">Адрес: <strong>{{ $techpoint->address }}</strong></span>
+                            <span class="tel">Телефон: <strong>{{ $techpoint->tel }}</strong></span>
+                        </a>
                     </div>
                     @endforeach
                 </div>
@@ -29,8 +31,8 @@
     <script>
         ymaps.ready(function () {
             var myMap = new ymaps.Map('map', {
-                center: [54.741825755940866,55.95225576587478],
-                zoom: 16
+                center: [54.753185705515016,55.98859607958987],
+                zoom: 12
             }, {
                 searchControlProvider: 'yandex#search'
             }),
@@ -43,7 +45,7 @@
             @foreach($techpoints as $techpoint)
             placemark{{ $techpoint->id }} = new ymaps.Placemark([{{$techpoint->coordinates}}], {
                 hintContent: '{{$techpoint->title}}',
-                balloonContent: '<a href="#{{ $techpoint->id }}">Записаться</a>'
+                balloonContent: '{{$techpoint->title}}<br><br><a class="btn btn-sm btn-primary" href="/techpoints/{{ $techpoint->id }}">Записаться</a>'
             },                
             {
                 iconLayout: 'default#image',
@@ -58,7 +60,7 @@
                     .add(placemark{{$techpoint->id}})
                 @endforeach
 
-            myMap.behaviors.disable('scrollZoom');
+            //myMap.behaviors.disable('scrollZoom');
             myMap.controls.remove('searchControl');
             myMap.controls.remove('trafficControl');
         });

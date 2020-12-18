@@ -16,7 +16,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-lg-3 header-logo">
-                    <a href="#">LOGO</a>
+                    <a href="/techpoints">LOGO</a>
                 </div>
                 <div class="col-12 col-lg-9 header-nav">
                     <nav class="navbar navbar-expand-lg">

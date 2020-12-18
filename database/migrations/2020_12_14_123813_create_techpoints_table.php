@@ -16,6 +16,9 @@ class CreateTechpointsTable extends Migration
         Schema::create('techpoints', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('tel');
+            $table->string('address');
+            $table->string('email')->nullable();
             $table->string('coordinates');
             $table->timestamps();
         });

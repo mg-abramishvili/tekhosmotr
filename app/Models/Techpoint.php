@@ -10,6 +10,6 @@ class Techpoint extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'coordinates'
+        'title', 'address', 'tel', 'email', 'coordinates'
     ];
 }

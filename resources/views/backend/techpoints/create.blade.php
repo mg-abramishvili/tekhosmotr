@@ -20,6 +20,36 @@
             </div>
 
             <div class="form-group">
+                <input type="text" class="form-control" name="address" placeholder="Адрес">
+                @if ($errors->has('address'))
+                    <div class="alert alert-danger">
+                        <!--{{ $errors->first('address') }}-->
+                        Укажите адрес
+                    </div>
+                @endif
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="tel" placeholder="Телефон">
+                @if ($errors->has('tel'))
+                    <div class="alert alert-danger">
+                        <!--{{ $errors->first('tel') }}-->
+                        Укажите телефон
+                    </div>
+                @endif
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="email" placeholder="E-mail">
+                @if ($errors->has('email'))
+                    <div class="alert alert-danger">
+                        <!--{{ $errors->first('email') }}-->
+                        Укажите E-mail
+                    </div>
+                @endif
+            </div>
+
+            <div class="form-group">
                 <input type="text" class="form-control" name="coordinates" placeholder="Координаты">
                 @if ($errors->has('coordinates'))
                     <div class="alert alert-danger">
