@@ -10,7 +10,7 @@ Auth::routes([
 ]);
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/techpoints');
 });
 
 // TECHPOINTS (BACKEND)
