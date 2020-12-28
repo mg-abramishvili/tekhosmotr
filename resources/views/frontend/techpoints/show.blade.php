@@ -6,7 +6,6 @@
             <div class="col-12 col-lg-6">
                 <div class="techpoint-detail">
                     <h1>{{ $techpoint->title }}</h1>
-                    <p>Текст с описанием Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam ad, explicabo commodi voluptatibus, ipsum quam aut earum consequuntur maiores doloribus placeat reprehenderit? Aliquam, mollitia aut.</p>
                     <p>Адрес: <strong>{{ $techpoint->address }}</strong></p>
                     <p>Телефон: <strong>{{ $techpoint->tel }}</strong></p>
                     <button class="btn btn-lg btn-primary">Записаться</button>
