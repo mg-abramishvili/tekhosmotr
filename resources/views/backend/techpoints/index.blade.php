@@ -4,7 +4,7 @@
     <div>
         <div class="row align-items-center mb-4">
             <div class="col-6">
-                <h1>Станции техосмотра</h1>
+                <h1>Станции техосмотра <span style="color: #999;">({{ $techpoints->count() }})</span></h1>
             </div>
             <div class="col-6" style="text-align: right;">
                 <a href="/backend/techpoints/create" class="btn btn-primary">Добавить станцию</a>
