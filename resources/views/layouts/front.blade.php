@@ -56,7 +56,9 @@
       <div class="modal-body">
         <ul>
             @foreach($goroda as $gorod)
+                @if($gorod->techpoints->count() > 0)
                 <li><a href="/city/{{$gorod->city_code}}">{{$gorod->city}} ({{$gorod->techpoints->count()}})</a></li>
+                @endif
             @endforeach
         </ul>
       </div>

@@ -34,7 +34,55 @@
     <script>
         ymaps.ready(function () {
             var myMap = new ymaps.Map('map', {
+                @if($city == 'ufa')
                 center: [54.753185705515016,55.98859607958987],
+                @elseif($city == 'agidel')
+                center: [55.908729165717716,53.933889071044874],
+                @elseif($city == 'baimak')
+                center: [52.597899797551335,58.31284774072266],
+                @elseif($city == 'belebey')
+                center: [54.10543457529205,54.11466284399413],
+                @elseif($city == 'beloretsk')
+                center: [53.96829919244161,58.39805735449212],
+                @elseif($city == 'birsk')
+                center: [55.40521323087281,55.527466859863324],
+                @elseif($city == 'blagoveschensk')
+                center: [55.0510757130606,55.96939267724606],
+                @elseif($city == 'davlekanovo')
+                center: [54.21430607814644,55.021611460327094],
+                @elseif($city == 'dyurtyuli')
+                center: [55.4797741027731,54.87879877758778],
+                @elseif($city == 'ishimbai')
+                center: [53.44996156609306,56.044534854492134],
+                @elseif($city == 'kumertau')
+                center: [52.76432982799722,55.80269028564449],
+                @elseif($city == 'mezhgoryie')
+                center: [54.20146283272981,57.94481543199657],
+                @elseif($city == 'meleuz')
+                center: [52.96600486516909,55.949204999999964],
+                @elseif($city == 'neftekamsk')
+                center: [56.079015525661234,54.279416499999904],
+                @elseif($city == 'oktyabrskiy')
+                center: [54.49483609662691,53.505433277832],
+                @elseif($city == 'priyutovo')
+                center: [53.897923188537206,53.92752849999999],
+                @elseif($city == 'salavat')
+                center: [53.354462320376484,55.91623372753903],
+                @elseif($city == 'sibay')
+                center: [52.715150469984295,58.68255399999999],
+                @elseif($city == 'sterlitamak')
+                center: [53.65637175654299,55.98083899999996],
+                @elseif($city == 'tuymazy')
+                center: [54.59935436706562,53.711622499999955],
+                @elseif($city == 'uchaly')
+                center: [54.31151553053144,59.39835799999994],
+                @elseif($city == 'chishmy')
+                center: [54.592393262396484,55.39149450000001],
+                @elseif($city == 'yanaul')
+                center: [56.265649471577966,54.947286999999925],
+                @else
+                center: [54.753185705515016,55.98859607958987],
+                @endif
                 zoom: 12
             }, {
                 searchControlProvider: 'yandex#search'
