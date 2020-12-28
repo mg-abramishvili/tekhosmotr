@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
 body {
+    font-family: 'PT Sans', sans-serif;
     font-size: 16px;
+    background-color: #fff;
+    overflow-x: hidden;
 }
 
 
 .container {
     max-width: 100%;
+    padding: 0;
 }
 
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
@@ -24,6 +30,14 @@ body {
 header {
     height: 70px;
     padding: 0 25px;
+    background-color: #fff;
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.165) 0px 0px 6px 2px;
 }
 
 header .container,
@@ -36,83 +50,176 @@ header .row {
     font-weight: 700;
 }
 
+.header-logo button {
+    border: 0;
+    box-shadow: none;
+    background: none;
+    color: #255299;
+    font-size: 17px;
+    font-weight: 700;
+    border-bottom: 1px dashed;
+    padding: 0;
+    margin-left: 30px;
+}
+
 .header-nav .navbar {
     padding: 0;
 }
 
 .header-nav .navbar-expand-lg .navbar-nav {
-    margin-left: -27px;
+    width: 100%;
+    justify-content: flex-end;
 }
 
 .header-nav .navbar-expand-lg .navbar-nav .nav-link {
-    border-left: 1px solid #ccc;
-    padding: 22px;
+    padding: 15px;
     color: #333;
     font-size: 15px;
-}
-
-.header-nav .navbar-expand-lg .navbar-nav .nav-item:last-child .nav-link {
-    border-right: 1px solid #ccc;
+    transition: 300ms;
+    -webkit-transition: 300ms;
 }
 
 .header-nav .navbar-expand-lg .navbar-nav .nav-link:hover {
-    color: rgb(13, 78, 177);
+    color: #255299;
+}
+
+.header-nav .navbar-expand-lg .navbar-nav .nav-link span {
+    border-bottom: 2px solid transparent;
+    padding-bottom: 3px;
+    transition: 300ms;
+    -webkit-transition: 300ms;
+}
+
+.header-nav .navbar-expand-lg .navbar-nav .nav-link:hover span {
+    border-color: #255299;
 }
 
 /* HEADER */
 
 /* INDEX */
 
+.left-panel {
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+    max-width: 30%;
+    padding-top: 5px;
+    box-shadow: 2px 0 2px 0 rgba(0,0,0,.1);
+}
+
+.right-panel {
+    -ms-flex: 0 0 70%;
+    flex: 0 0 70%;
+    max-width: 70%;
+}
+
+.search {
+    margin: 20px;
+    margin-bottom: 25px;
+    padding: 0;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
+    border-radius: 7px;
+    position: relative;
+}
+
+.search .form-control {
+    height: 45px;
+    line-height: 45px;
+    border: 0;
+    padding: 0 20px;
+    padding-left: 50px;
+}
+
+.search:before {
+    content: '';
+    background: url(/img/search.svg) center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.25;
+}
+
 .main-techpoints-list {
-    height: calc(100vh - 70px);
+    height: calc(100vh - 70px - 95px);
     overflow-y: scroll;
+    padding-bottom: 25px;
+    border-top: 1px solid rgba(0,0,0,0.1);
 }
 
 .main-techpoints-list-item {
     height: auto;
-    border-bottom: 1px solid #ccc;
 }
 
 .main-techpoints-list-item a {
     display: block;
+    background-color: #fff;
     color: #333;
     padding: 25px;
+    padding-left: 13px;
+    transition: 300ms;
+    -webkit-transition: 300ms;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-left: 8px solid transparent;
 }
 
 .main-techpoints-list-item a:hover {
     text-decoration: none;
-    background: #f5f5f5;
+    border-left-color: #255299;
 }
 
 .main-techpoints-list-item .title {
     font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
 }
 
 .main-techpoints-list-item a:hover .title {
-    color: rgb(13, 78, 177);
+    color: #255299;
 }
 
 .main-techpoints-list-item .address {
+    position: relative;
+    padding-left: 30px;
     display: block;
-    font-size: 15px;
     margin-bottom: 10px;
 }
 
-.main-techpoints-list-item .address strong {
-    font-weight: 400;
-    border-bottom: 1px dashed;
-    margin-left: 10px;
+.main-techpoints-list-item .address:before {
+    content: '';
+    background: url(/img/location.svg) center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.25;
 }
 
 .main-techpoints-list-item .tel {
+    position: relative;
+    padding-left: 30px;
     display: block;
-    font-size: 15px;
 }
 
-.main-techpoints-list-item .tel strong {
-    font-weight: 400;
-    border-bottom: 1px dashed;
-    margin-left: 10px;
+.main-techpoints-list-item .tel:before {
+    content: '';
+    background: url(/img/phone.svg) center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.25;
 }
 
 .main-map {
@@ -125,6 +232,45 @@ header .row {
 }
 
 /* INDEX */
+
+
+
+/* CITIES MODAL */
+
+.modal .modal-header {
+    border: 0;
+    padding: 0;
+}
+
+.modal .modal-header .close {
+    position: absolute;
+    right: -50px;
+    top: -25px;
+    text-shadow: none;
+    color: #fff;
+    opacity: 0.75;
+    font-size: 80px;
+    font-weight: 100;
+}
+
+.modal ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    columns: 3;
+    padding: 35px;
+}
+
+.modal ul li {
+    margin-bottom: 14px;
+}
+
+.modal ul li a {
+    font-size: 16px;
+    display: block;
+}
+
+/* CITIES MODAL */
 
 
 
