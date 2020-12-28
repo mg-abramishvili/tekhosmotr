@@ -55,29 +55,9 @@
       </div>
       <div class="modal-body">
         <ul>
-            <li><a href="/city/ufa">Уфа</a></li>
-            <li><a href="/city/agidel">Агидель</a></li>
-            <li><a href="/city/baimak">Баймак</a></li>
-            <li><a href="/city/belebey">Белебей</a></li>
-            <li><a href="/city/beloretsk">Белорецк</a></li>
-            <li><a href="/city/birsk">Бирск</a></li>
-            <li><a href="/city/blagoveschensk">Благовещенск</a></li>
-            <li><a href="/city/davlekanovo">Давлеканово</a></li>
-            <li><a href="/city/dyurtyuli">Дюртюли</a></li>
-            <li><a href="/city/ishimbai">Ишимбай</a></li>
-            <li><a href="/city/kumertau">Кумертау</a></li>
-            <li><a href="/city/mezhgoryie">Межгорье</a></li>
-            <li><a href="/city/meleuz">Мелеуз</a></li>
-            <li><a href="/city/neftekamsk">Нефтекамск</a></li>
-            <li><a href="/city/oktyabrskiy">Октябрьский</a></li>
-            <li><a href="/city/priyutovo">Приютово</a></li>
-            <li><a href="/city/salavat">Салават</a></li>
-            <li><a href="/city/sibay">Сибай</a></li>
-            <li><a href="/city/sterlitamak">Стерлитамак</a></li>
-            <li><a href="/city/tuymazy">Туймазы</a></li>
-            <li><a href="/city/uchaly">Учалы</a></li>
-            <li><a href="/city/chishmy">Чишмы</a></li>
-            <li><a href="/city/yanaul">Янаул</a></li>
+            @foreach($goroda as $gorod)
+                <li><a href="/city/{{$gorod->city_code}}">{{$gorod->city}} ({{$gorod->techpoints->count()}})</a></li>
+            @endforeach
         </ul>
       </div>
     </div>
