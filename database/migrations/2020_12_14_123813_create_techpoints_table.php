@@ -20,6 +20,8 @@ class CreateTechpointsTable extends Migration
             $table->string('address');
             $table->string('email')->nullable();
             $table->string('coordinates');
+            $table->string('number')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }

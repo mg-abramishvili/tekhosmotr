@@ -10,7 +10,7 @@
                 <div class="main-techpoints-list" id="main-techpoints-list">
                     @foreach($techpoints as $techpoint)
                     <div class="main-techpoints-list-item">
-                        <a href="/techpoints/{{ $techpoint->id }}">
+                        <a href="/techpoint/{{ $techpoint->id }}">
                             <p class="title">{{ $techpoint->title }}</p>
                             <span class="address">{{ $techpoint->address }}</span>
                             <span class="tel">{{ $techpoint->tel }}</span>

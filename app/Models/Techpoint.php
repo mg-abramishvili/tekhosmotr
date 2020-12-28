@@ -12,4 +12,9 @@ class Techpoint extends Model
     protected $fillable = [
         'title', 'address', 'tel', 'email', 'coordinates'
     ];
+
+    public function cities()
+    {
+        return $this->belongsToMany('App\Models\City');
+    }
 }

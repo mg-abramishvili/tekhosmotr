@@ -20,6 +20,21 @@
             </div>
 
             <div class="form-group">
+                <select class="form-control" name="cities">
+                    <option disabled selected value> -- Укажите город -- </option>
+                    @foreach($cities as $city)
+                        <option value="{{ $city->id }}">{{ $city->city }}</option>
+                    @endforeach
+                </select>
+                @if ($errors->has('cities'))
+                    <div class="alert alert-danger">
+                        <!--{{ $errors->first('cities') }}-->
+                        Укажите город
+                    </div>
+                @endif
+            </div>
+
+            <div class="form-group">
                 <input type="text" class="form-control" name="address" placeholder="Адрес">
                 @if ($errors->has('address'))
                     <div class="alert alert-danger">
@@ -55,6 +70,19 @@
                     <div class="alert alert-danger">
                         <!--{{ $errors->first('coordinates') }}-->
                         Укажите координаты
+                    </div>
+                @endif
+            </div>
+
+            <div class="form-group">
+                <select class="form-control" name="status">
+                        <option value="enabled" selected>Вкл</option>
+                        <option value="disabled">Выкл</option>
+                </select>
+                @if ($errors->has('status'))
+                    <div class="alert alert-danger">
+                        <!--{{ $errors->first('status') }}-->
+                        Укажите статус
                     </div>
                 @endif
             </div>

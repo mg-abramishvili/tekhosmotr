@@ -17,8 +17,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-lg-2 header-logo">
-                    <a href="/techpoints">LOGO</a>
-                    <button data-toggle="modal" data-target="#myModal">Уфа</button>
+                    <a href="/">LOGO</a>
+                    @foreach($goroda as $gorod)
+                        @if($gorod->city_code == $city)
+                        <button data-toggle="modal" data-target="#myModal">{{ $gorod->city }}</button>
+                        @endif
+                    @endforeach
                 </div>
                 <div class="col-12 col-lg-10 header-nav">
                     <nav class="navbar navbar-expand-lg">
@@ -51,29 +55,29 @@
       </div>
       <div class="modal-body">
         <ul>
-            <li><a href="#">Уфа</a></li>
-            <li><a href="#">Агидель</a></li>
-            <li><a href="#">Баймак</a></li>
-            <li><a href="#">Белебей</a></li>
-            <li><a href="#">Белорецк</a></li>
-            <li><a href="#">Бирск</a></li>
-            <li><a href="#">Благовещенск</a></li>
-            <li><a href="#">Давлеканово</a></li>
-            <li><a href="#">Дюртюли</a></li>
-            <li><a href="#">Ишимбай</a></li>
-            <li><a href="#">Кумертау</a></li>
-            <li><a href="#">Межгорье</a></li>
-            <li><a href="#">Мелеуз</a></li>
-            <li><a href="#">Нефтекамск</a></li>
-            <li><a href="#">Октябрьский</a></li>
-            <li><a href="#">Приютово</a></li>
-            <li><a href="#">Салават</a></li>
-            <li><a href="#">Сибай</a></li>
-            <li><a href="#">Стерлитамак</a></li>
-            <li><a href="#">Туймазы</a></li>
-            <li><a href="#">Учалы</a></li>
-            <li><a href="#">Чишмы</a></li>
-            <li><a href="#">Янаул</a></li>
+            <li><a href="/city/ufa">Уфа</a></li>
+            <li><a href="/city/agidel">Агидель</a></li>
+            <li><a href="/city/baimak">Баймак</a></li>
+            <li><a href="/city/belebey">Белебей</a></li>
+            <li><a href="/city/beloretsk">Белорецк</a></li>
+            <li><a href="/city/birsk">Бирск</a></li>
+            <li><a href="/city/blagoveschensk">Благовещенск</a></li>
+            <li><a href="/city/davlekanovo">Давлеканово</a></li>
+            <li><a href="/city/dyurtyuli">Дюртюли</a></li>
+            <li><a href="/city/ishimbai">Ишимбай</a></li>
+            <li><a href="/city/kumertau">Кумертау</a></li>
+            <li><a href="/city/mezhgoryie">Межгорье</a></li>
+            <li><a href="/city/meleuz">Мелеуз</a></li>
+            <li><a href="/city/neftekamsk">Нефтекамск</a></li>
+            <li><a href="/city/oktyabrskiy">Октябрьский</a></li>
+            <li><a href="/city/priyutovo">Приютово</a></li>
+            <li><a href="/city/salavat">Салават</a></li>
+            <li><a href="/city/sibay">Сибай</a></li>
+            <li><a href="/city/sterlitamak">Стерлитамак</a></li>
+            <li><a href="/city/tuymazy">Туймазы</a></li>
+            <li><a href="/city/uchaly">Учалы</a></li>
+            <li><a href="/city/chishmy">Чишмы</a></li>
+            <li><a href="/city/yanaul">Янаул</a></li>
         </ul>
       </div>
     </div>

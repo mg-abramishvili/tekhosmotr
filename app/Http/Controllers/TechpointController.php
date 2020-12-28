@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Techpoint;
+use App\Models\City;
 use Illuminate\Http\Request;
 
 class TechpointController extends Controller
@@ -15,7 +16,8 @@ class TechpointController extends Controller
 
     public function create()
     {
-        return view('backend.techpoints.create');
+        $cities = City::all();
+        return view('backend.techpoints.create', compact('cities'));
     }
 
     public function edit($id)
@@ -47,7 +49,9 @@ class TechpointController extends Controller
         $techpoints->tel = $data['tel'];
         $techpoints->email = $data['email'];
         $techpoints->coordinates = $data['coordinates'];
+        $techpoints->status = $data['status'];
         $techpoints->save();
+        $techpoints->cities()->attach($request->cities, ['techpoint_id' => $techpoints->id]);
         return redirect('/backend/techpoints');
     }
 
@@ -67,7 +71,10 @@ class TechpointController extends Controller
         $techpoints->tel = $data['tel'];
         $techpoints->email = $data['email'];
         $techpoints->coordinates = $data['coordinates'];
+        $techpoints->status = $data['status'];
         $techpoints->save();
+        $stores->cities()->detach();
+        $techpoints->cities()->attach($request->cities, ['techpoint_id' => $techpoints->id]);
         return redirect('/backend/techpoints');
     }
 
