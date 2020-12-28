@@ -52,7 +52,7 @@
             },                
             {
                 iconLayout: 'default#image',
-                iconImageHref: '/img/repairing-service.png',
+                iconImageHref: '/img/repairing-service.svg',
                 iconImageSize: [40, 40],
                 iconImageOffset: [-20, -20]
             });
