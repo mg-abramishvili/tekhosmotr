@@ -48,7 +48,7 @@
             @foreach($techpoints as $techpoint)
             placemark{{ $techpoint->id }} = new ymaps.Placemark([{{$techpoint->coordinates}}], {
                 hintContent: '{{$techpoint->title}}',
-                balloonContent: '{{$techpoint->title}}<br><br><a class="btn btn-sm btn-primary" href="/techpoints/{{ $techpoint->id }}">Записаться</a>'
+                balloonContent: '{{$techpoint->title}}<br><br><a class="btn btn-sm btn-primary" href="/techpoint/{{ $techpoint->id }}">Записаться</a>'
             },                
             {
                 iconLayout: 'default#image',
