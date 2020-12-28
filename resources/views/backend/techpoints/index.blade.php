@@ -18,6 +18,11 @@
                 <tr>
                     <td style="text-align: left; padding-left: 20px; padding-right: 20px;">
                         {{$techpoint->title}}
+                        <span>
+                            @foreach($techpoint->cities as $city)
+                                {{ $city->city }}
+                            @endforeach
+                        </span>
                     </td>
                     <td style="width: 200px;">
                         <a href="/backend/techpoints/{{$techpoint->id}}/edit" class="btn btn-sm btn-warning">Изменить</a>
