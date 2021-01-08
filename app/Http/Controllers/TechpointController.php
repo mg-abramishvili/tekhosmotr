@@ -73,7 +73,7 @@ class TechpointController extends Controller
         $techpoints->coordinates = $data['coordinates'];
         $techpoints->status = $data['status'];
         $techpoints->save();
-        $stores->cities()->detach();
+        $techpoints->cities()->detach();
         $techpoints->cities()->attach($request->cities, ['techpoint_id' => $techpoints->id]);
         return redirect('/backend/techpoints');
     }

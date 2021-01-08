@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\TechpointController;
 use App\Http\Controllers\FrontTechpointController;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,9 @@ Route::get('/', function () {
 // TECHPOINTS (BACKEND)
 Route::resource('/backend/techpoints', TechpointController::class)->middleware('auth');
 Route::get('/backend/techpoints/delete/{id}','App\Http\Controllers\TechpointController@delete')->middleware('auth');
+
+// PAGES (BACKEND)
+Route::resource('/backend/pages', PageController::class)->middleware('auth');
 
 // TECHPOINTS (FRONT)
 Route::get('/city/{city}', 'App\Http\Controllers\FrontTechpointController@index');
