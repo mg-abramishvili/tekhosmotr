@@ -17,4 +17,9 @@ class Techpoint extends Model
     {
         return $this->belongsToMany('App\Models\City');
     }
+
+    public function cats()
+    {
+        return $this->belongsToMany('App\Models\Cat');
+    }
 }
