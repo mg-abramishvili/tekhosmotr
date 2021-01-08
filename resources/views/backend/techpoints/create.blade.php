@@ -45,6 +45,16 @@
             </div>
 
             <div class="form-group">
+                <input type="text" class="form-control" name="coordinates" placeholder="Координаты">
+                @if ($errors->has('coordinates'))
+                    <div class="alert alert-danger">
+                        <!--{{ $errors->first('coordinates') }}-->
+                        Укажите координаты
+                    </div>
+                @endif
+            </div>
+
+            <div class="form-group">
                 <input type="text" class="form-control" name="tel" placeholder="Телефон">
                 @if ($errors->has('tel'))
                     <div class="alert alert-danger">
@@ -65,16 +75,6 @@
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" name="coordinates" placeholder="Координаты">
-                @if ($errors->has('coordinates'))
-                    <div class="alert alert-danger">
-                        <!--{{ $errors->first('coordinates') }}-->
-                        Укажите координаты
-                    </div>
-                @endif
-            </div>
-
-            <div class="form-group">
                 <select class="form-control" name="status">
                         <option value="enabled" selected>Вкл</option>
                         <option value="disabled">Выкл</option>
@@ -83,6 +83,60 @@
                     <div class="alert alert-danger">
                         <!--{{ $errors->first('status') }}-->
                         Укажите статус
+                    </div>
+                @endif
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="number" placeholder="Номер">
+                @if ($errors->has('number'))
+                    <div class="alert alert-danger">
+                        <!--{{ $errors->first('number') }}-->
+                        Укажите Номер
+                    </div>
+                @endif
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="att_number" placeholder="Номер аттестата">
+                @if ($errors->has('att_number'))
+                    <div class="alert alert-danger">
+                        <!--{{ $errors->first('att_number') }}-->
+                        Укажите Номер аттестата
+                    </div>
+                @endif
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="inn" placeholder="ИНН">
+                @if ($errors->has('inn'))
+                    <div class="alert alert-danger">
+                        <!--{{ $errors->first('inn') }}-->
+                        Укажите ИНН
+                    </div>
+                @endif
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="ogrn" placeholder="ОГРН">
+                @if ($errors->has('ogrn'))
+                    <div class="alert alert-danger">
+                        <!--{{ $errors->first('ogrn') }}-->
+                        Укажите ОГРН
+                    </div>
+                @endif
+            </div>
+
+            <div class="form-group">
+                <select class="form-control" name="cats[]" multiple>
+                    @foreach($cats as $cat)
+                        <option value="{{ $cat->id }}">{{ $cat->title }}</option>
+                    @endforeach
+                </select>
+                @if ($errors->has('cats'))
+                    <div class="alert alert-danger">
+                        <!--{{ $errors->first('cats') }}-->
+                        Укажите Категории
                     </div>
                 @endif
             </div>

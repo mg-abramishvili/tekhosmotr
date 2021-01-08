@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Techpoint;
 use App\Models\City;
+use App\Models\Cat;
 use Illuminate\Http\Request;
 
 class TechpointController extends Controller
@@ -17,13 +18,16 @@ class TechpointController extends Controller
     public function create()
     {
         $cities = City::all();
-        return view('backend.techpoints.create', compact('cities'));
+        $cats = Cat::all();
+        return view('backend.techpoints.create', compact('cities', 'cats'));
     }
 
     public function edit($id)
     {
         $techpoint = Techpoint::find($id);
-        return view('backend.techpoints.edit', compact('techpoint'));
+        $cities = City::all();
+        $cats = Cat::all();
+        return view('backend.techpoints.edit', compact('techpoint', 'cities', 'cats'));
     }
 
     public function delete($id)
@@ -50,8 +54,13 @@ class TechpointController extends Controller
         $techpoints->email = $data['email'];
         $techpoints->coordinates = $data['coordinates'];
         $techpoints->status = $data['status'];
+        $techpoints->inn = $data['inn'];
+        $techpoints->ogrn = $data['ogrn'];
+        $techpoints->number = $data['number'];
+        $techpoints->att_number = $data['att_number'];
         $techpoints->save();
         $techpoints->cities()->attach($request->cities, ['techpoint_id' => $techpoints->id]);
+        $techpoints->cats()->attach($request->cats, ['techpoint_id' => $techpoints->id]);
         return redirect('/backend/techpoints');
     }
 
@@ -72,9 +81,15 @@ class TechpointController extends Controller
         $techpoints->email = $data['email'];
         $techpoints->coordinates = $data['coordinates'];
         $techpoints->status = $data['status'];
+        $techpoints->inn = $data['inn'];
+        $techpoints->ogrn = $data['ogrn'];
+        $techpoints->number = $data['number'];
+        $techpoints->att_number = $data['att_number'];
         $techpoints->save();
         $techpoints->cities()->detach();
         $techpoints->cities()->attach($request->cities, ['techpoint_id' => $techpoints->id]);
+        $techpoints->cats()->detach();
+        $techpoints->cats()->attach($request->cats, ['techpoint_id' => $techpoints->id]);
         return redirect('/backend/techpoints');
     }
 
