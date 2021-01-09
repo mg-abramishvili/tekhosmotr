@@ -5,10 +5,86 @@
         <div class="row">
             <div class="col-12 col-lg-6">
                 <div class="techpoint-detail">
+                    <h6>{{ $techpoint->number }}</h6>
                     <h1>{{ $techpoint->title }}</h1>
-                    <p>Адрес: <strong>{{ $techpoint->address }}</strong></p>
-                    <p>Телефон: <strong>{{ $techpoint->tel }}</strong></p>
+                    <div class="row">
+
+                        <div class="col-12 col-md-5">
+                            <div class="techpoint-detail-item">
+                                <div class="techpoint-detail-item-label">
+                                    ИНН
+                                </div>
+                                <div class="techpoint-detail-item-value">
+                                    {{ $techpoint->inn }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-7">
+                            <div class="techpoint-detail-item">
+                                <div class="techpoint-detail-item-label">
+                                    ОГРН/ОГРНИП
+                                </div>
+                                <div class="techpoint-detail-item-value">
+                                    {{ $techpoint->ogrn }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-5">
+                            <div class="techpoint-detail-item">
+                                <div class="techpoint-detail-item-label">
+                                    Номер аттестата
+                                </div>
+                                <div class="techpoint-detail-item-value">
+                                    {{ $techpoint->att_number }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-7">
+                            <div class="techpoint-detail-item">
+                                <div class="techpoint-detail-item-label">
+                                    Аккредитованные категории ТС
+                                </div>
+                                <div class="techpoint-detail-item-value">
+                                    <ul>
+                                        @foreach($techpoint->cats as $cat)
+                                            <li>{{ $cat->title }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-5">
+                            <div class="techpoint-detail-item">
+                                <div class="techpoint-detail-item-label">
+                                    Город
+                                </div>
+                                <div class="techpoint-detail-item-value">
+                                    @foreach($techpoint->cities as $city)
+                                        {{ $city->city }}
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-7">
+                            <div class="techpoint-detail-item">
+                                <div class="techpoint-detail-item-label">
+                                    Адрес
+                                </div>
+                                <div class="techpoint-detail-item-value">
+                                    {{ $techpoint->address }}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                     <button class="btn btn-lg btn-primary">Записаться</button>
+
                 </div>
             </div>
             <div class="col-12 col-lg-6">
