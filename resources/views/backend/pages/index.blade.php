@@ -16,10 +16,10 @@
             <table class="table table-bordered table-hover">
                 @forelse($pages as $page)
                 <tr>
-                    <td style="text-align: left; padding-left: 20px; padding-right: 20px;">
+                    <td style="text-align: left; padding-left: 20px; padding-right: 20px; vertical-align: middle;">
                         {{$page->title}}
                     </td>
-                    <td style="width: 200px;">
+                    <td style="width: 200px; vertical-align: middle; text-align: center;">
                         <a href="/backend/pages/{{$page->id}}/edit" class="btn btn-sm btn-warning">Изменить</a>
                     </td>
                 </tr>

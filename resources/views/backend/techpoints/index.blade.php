@@ -16,7 +16,7 @@
             <table class="table table-bordered table-hover">
                 @forelse($techpoints as $techpoint)
                 <tr>
-                    <td style="text-align: left; padding-left: 20px; padding-right: 20px;">
+                    <td style="text-align: left; padding-left: 20px; padding-right: 20px; vertical-align: middle;">
                         {{$techpoint->title}}
                         <span style="display:block; font-size: 13px; color: #999;">
                             @foreach($techpoint->cities as $city)
@@ -24,7 +24,7 @@
                             @endforeach
                         </span>
                     </td>
-                    <td style="width: 200px;">
+                    <td style="width: 200px; vertical-align: middle; text-align: center;">
                         <a href="/backend/techpoints/{{$techpoint->id}}/edit" class="btn btn-sm btn-warning">Изменить</a>
                         <a href="/backend/techpoints/delete/{{$techpoint->id}}" class="btn btn-sm btn-danger">Удалить</a>
                     </td>
