@@ -22,6 +22,7 @@
 </head>
 <body>
     <div id="app">
+        @auth
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/backend/techpoints') }}">
@@ -39,41 +40,27 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-                            
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="/backend/techpoints">Станции ТО</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/backend/pages">Страницы</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        Выйти
-                                </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/backend/techpoints">Станции ТО</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/backend/pages">Страницы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    Выйти
+                            </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                            </li>
-                        @endguest
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
+        @endauth
 
         <main class="py-4">
             <div class="container">
