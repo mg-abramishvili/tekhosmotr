@@ -118,157 +118,157 @@
 
                             <div class="date-pick-slider">
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d1" name="gender" value="{{ \Carbon\Carbon::now()->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d1" name="date" value="{{ \Carbon\Carbon::now()->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d1">{{ \Carbon\Carbon::now()->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d2" name="gender" value="{{ \Carbon\Carbon::now()->addDay(1)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d2" name="date" value="{{ \Carbon\Carbon::now()->addDay(1)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d2">{{ \Carbon\Carbon::now()->addDay(1)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d3" name="gender" value="{{ \Carbon\Carbon::now()->addDay(2)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d3" name="date" value="{{ \Carbon\Carbon::now()->addDay(2)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d3">{{ \Carbon\Carbon::now()->addDay(2)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d4" name="gender" value="{{ \Carbon\Carbon::now()->addDay(3)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d4" name="date" value="{{ \Carbon\Carbon::now()->addDay(3)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d4">{{ \Carbon\Carbon::now()->addDay(3)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d5" name="gender" value="{{ \Carbon\Carbon::now()->addDay(4)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d5" name="date" value="{{ \Carbon\Carbon::now()->addDay(4)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d5">{{ \Carbon\Carbon::now()->addDay(4)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d6" name="gender" value="{{ \Carbon\Carbon::now()->addDay(5)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d6" name="date" value="{{ \Carbon\Carbon::now()->addDay(5)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d6">{{ \Carbon\Carbon::now()->addDay(5)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d7" name="gender" value="{{ \Carbon\Carbon::now()->addDay(6)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d7" name="date" value="{{ \Carbon\Carbon::now()->addDay(6)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d7">{{ \Carbon\Carbon::now()->addDay(6)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d8" name="gender" value="{{ \Carbon\Carbon::now()->addDay(7)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d8" name="date" value="{{ \Carbon\Carbon::now()->addDay(7)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d8">{{ \Carbon\Carbon::now()->addDay(7)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d9" name="gender" value="{{ \Carbon\Carbon::now()->addDay(8)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d9" name="date" value="{{ \Carbon\Carbon::now()->addDay(8)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d9">{{ \Carbon\Carbon::now()->addDay(8)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d10" name="gender" value="{{ \Carbon\Carbon::now()->addDay(9)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d10" name="date" value="{{ \Carbon\Carbon::now()->addDay(9)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d10">{{ \Carbon\Carbon::now()->addDay(9)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d11" name="gender" value="{{ \Carbon\Carbon::now()->addDay(10)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d11" name="date" value="{{ \Carbon\Carbon::now()->addDay(10)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d11">{{ \Carbon\Carbon::now()->addDay(10)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d12" name="gender" value="{{ \Carbon\Carbon::now()->addDay(11)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d12" name="date" value="{{ \Carbon\Carbon::now()->addDay(11)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d12">{{ \Carbon\Carbon::now()->addDay(11)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d13" name="gender" value="{{ \Carbon\Carbon::now()->addDay(12)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d13" name="date" value="{{ \Carbon\Carbon::now()->addDay(12)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d13">{{ \Carbon\Carbon::now()->addDay(12)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d14" name="gender" value="{{ \Carbon\Carbon::now()->addDay(13)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d14" name="date" value="{{ \Carbon\Carbon::now()->addDay(13)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d14">{{ \Carbon\Carbon::now()->addDay(13)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d15" name="gender" value="{{ \Carbon\Carbon::now()->addDay(14)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d15" name="date" value="{{ \Carbon\Carbon::now()->addDay(14)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d15">{{ \Carbon\Carbon::now()->addDay(14)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d16" name="gender" value="{{ \Carbon\Carbon::now()->addDay(15)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d16" name="date" value="{{ \Carbon\Carbon::now()->addDay(15)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d16">{{ \Carbon\Carbon::now()->addDay(15)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d17" name="gender" value="{{ \Carbon\Carbon::now()->addDay(16)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d17" name="date" value="{{ \Carbon\Carbon::now()->addDay(16)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d17">{{ \Carbon\Carbon::now()->addDay(16)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d18" name="gender" value="{{ \Carbon\Carbon::now()->addDay(17)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d18" name="date" value="{{ \Carbon\Carbon::now()->addDay(17)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d18">{{ \Carbon\Carbon::now()->addDay(17)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d19" name="gender" value="{{ \Carbon\Carbon::now()->addDay(18)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d19" name="date" value="{{ \Carbon\Carbon::now()->addDay(18)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d19">{{ \Carbon\Carbon::now()->addDay(18)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d20" name="gender" value="{{ \Carbon\Carbon::now()->addDay(19)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d20" name="date" value="{{ \Carbon\Carbon::now()->addDay(19)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d20">{{ \Carbon\Carbon::now()->addDay(19)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d21" name="gender" value="{{ \Carbon\Carbon::now()->addDay(20)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d21" name="date" value="{{ \Carbon\Carbon::now()->addDay(20)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d21">{{ \Carbon\Carbon::now()->addDay(20)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d22" name="gender" value="{{ \Carbon\Carbon::now()->addDay(21)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d22" name="date" value="{{ \Carbon\Carbon::now()->addDay(21)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d22">{{ \Carbon\Carbon::now()->addDay(21)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d23" name="gender" value="{{ \Carbon\Carbon::now()->addDay(22)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d23" name="date" value="{{ \Carbon\Carbon::now()->addDay(22)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d23">{{ \Carbon\Carbon::now()->addDay(22)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d24" name="gender" value="{{ \Carbon\Carbon::now()->addDay(23)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d24" name="date" value="{{ \Carbon\Carbon::now()->addDay(23)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d24">{{ \Carbon\Carbon::now()->addDay(23)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d25" name="gender" value="{{ \Carbon\Carbon::now()->addDay(24)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d25" name="date" value="{{ \Carbon\Carbon::now()->addDay(24)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d25">{{ \Carbon\Carbon::now()->addDay(24)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d26" name="gender" value="{{ \Carbon\Carbon::now()->addDay(25)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d26" name="date" value="{{ \Carbon\Carbon::now()->addDay(25)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d26">{{ \Carbon\Carbon::now()->addDay(25)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d27" name="gender" value="{{ \Carbon\Carbon::now()->addDay(26)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d27" name="date" value="{{ \Carbon\Carbon::now()->addDay(26)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d27">{{ \Carbon\Carbon::now()->addDay(26)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d28" name="gender" value="{{ \Carbon\Carbon::now()->addDay(27)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d28" name="date" value="{{ \Carbon\Carbon::now()->addDay(27)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d28">{{ \Carbon\Carbon::now()->addDay(27)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d29" name="gender" value="{{ \Carbon\Carbon::now()->addDay(28)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d29" name="date" value="{{ \Carbon\Carbon::now()->addDay(28)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d29">{{ \Carbon\Carbon::now()->addDay(28)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d30" name="gender" value="{{ \Carbon\Carbon::now()->addDay(29)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d30" name="date" value="{{ \Carbon\Carbon::now()->addDay(29)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d30">{{ \Carbon\Carbon::now()->addDay(29)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d31" name="gender" value="{{ \Carbon\Carbon::now()->addDay(30)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d31" name="date" value="{{ \Carbon\Carbon::now()->addDay(30)->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d31">{{ \Carbon\Carbon::now()->addDay(30)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
                             </div>
@@ -365,11 +365,11 @@
 
                 myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
                     hintContent: '{{$techpoint->title}}',
-                    balloonContent: '{{$techpoint->title}}<br><br><a class="btn btn-sm btn-primary" href="#">Записаться</a>'
+                    //balloonContent: '{{$techpoint->title}}<br><br><a class="btn btn-sm btn-primary" href="#">Записаться</a>'
                 },
                 {
                     iconLayout: 'default#image',
-                    iconImageHref: '/img/repairing-service.png',
+                    iconImageHref: '/img/repairing-service.svg',
                     iconImageSize: [40, 40],
                     iconImageOffset: [-20, -20]
                 })
