@@ -36,7 +36,7 @@
                                 <li class="nav-item"><a href="/p/metroligicheskoe-soprovozhdenie" class="nav-link"><span>Метрологическое сопрвождение</span></a></li>
                                 <!--<li class="nav-item"><a href="#" class="nav-link"><span>Оборудование для ТО</span></a></li>
                                 <li class="nav-item"><a href="#" class="nav-link"><span>Ремонт оборудования</span></a></li>-->
-                                <li class="nav-item"><a href="#" class="nav-link"><span>Контакты</span></a></li>
+                                <li class="nav-item"><a href="/p/kontakty" class="nav-link"><span>Контакты</span></a></li>
                             </ul>
                         </div>
                     </nav>
