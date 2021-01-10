@@ -3,13 +3,13 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-6 techpoint-detail-left">
                 <div class="techpoint-detail">
                     <h6>{{ $techpoint->number }}</h6>
                     <h1>{{ $techpoint->title }}</h1>
                     <div class="row">
 
-                        <div class="col-12 col-md-5 techpoint-detail-left">
+                        <div class="col-12 col-md-5">
                             <div class="techpoint-detail-item">
                                 <div class="techpoint-detail-item-label">
                                     ИНН
@@ -20,7 +20,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-7 techpoint-detail-right">
+                        <div class="col-12 col-md-7">
                             <div class="techpoint-detail-item">
                                 <div class="techpoint-detail-item-label">
                                     ОГРН/ОГРНИП
@@ -87,7 +87,7 @@
 
                 </div>
             </div>
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-6 techpoint-detail-right">
                 <div class="page-map">
                     <div id="map"></div>
                 </div>
