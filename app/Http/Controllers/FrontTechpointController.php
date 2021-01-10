@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Techpoint;
 use App\Models\City;
+use App\Mail\NewLead;
 use Illuminate\Http\Request;
 
 class FrontTechpointController extends Controller
