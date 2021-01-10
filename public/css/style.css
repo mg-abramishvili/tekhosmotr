@@ -17,6 +17,61 @@ body {
     padding: 0;
 }
 
+.page-content {
+    padding-top: 30px;
+}
+
+.page-content .container {
+    padding: 0 75px;
+}
+
+.page-content h1 {
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.page-content h2 {
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.page-content p {
+    margin-bottom: 25px;
+    font-size: 17px;
+}
+
+.page-content ul {
+    padding-left: 15px;
+    margin-bottom: 30px;
+}
+
+.page-content ul li {
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.page-content ul li:last-child {
+    margin-bottom: 0;
+}
+
+.page-content ul li strong {
+    display: block;
+}
+
+.page-content a {
+    display: block;
+    margin-bottom: 30px;
+    color: #333;
+    text-decoration: underline;
+}
+
+.page-content a:hover,
+.page-content a:focus {
+    color: #255299;
+}
+
 .row {
     margin: 0;
 }
