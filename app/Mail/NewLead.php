@@ -28,6 +28,10 @@ class NewLead extends Mailable
         return $this->markdown('emails.lead')
             ->with([
             'station' => $this->lead->station,
+            'date' => $this->lead->date,
+            'time' => $this->lead->time,
+            'name' => $this->lead->name,
+            'phone' => $this->lead->phone,
         ]);
     }
 }
