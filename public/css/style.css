@@ -449,6 +449,14 @@ header .row {
 
 @media (max-width: 900px) {
 
+    .techpoint-detail {
+        padding-bottom: 60px;
+    }
+
+}
+
+@media (max-width: 900px) {
+
     .techpoint-detail-left {
         order: 2;
     }
