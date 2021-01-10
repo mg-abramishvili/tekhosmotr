@@ -80,6 +80,18 @@ body {
     color: #255299;
 }
 
+@media (max-width: 900px) {
+
+    .page-content-left {
+        order: 2;
+    }
+
+    .page-content-right {
+        order: 1;
+    }
+
+}
+
 .row {
     margin: 0;
 }
@@ -484,6 +496,14 @@ header .row {
 .page-map {
     height: calc(100vh - 70px);
     position: relative;
+}
+
+@media (max-width: 900px) {
+
+    .page-map {
+        height: 250px;
+    }
+
 }
 
 .page-map #map {
