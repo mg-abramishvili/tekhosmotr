@@ -83,7 +83,7 @@
 
                     </div>
 
-                    <button class="btn btn-lg btn-primary">Записаться</button>
+                    <a href="/techpoint/{{$techpoint->id}}/email" class="btn btn-lg btn-primary">Записаться</a>
 
                 </div>
             </div>

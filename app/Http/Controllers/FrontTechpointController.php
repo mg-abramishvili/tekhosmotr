@@ -26,4 +26,8 @@ class FrontTechpointController extends Controller
         return view('frontend.techpoints.show', compact('techpoint', 'goroda', 'city'));
     }
 
+    public function lead($id, Request $request) {
+        Mail::to('mg@abramishvili.net')->send(new NewLead($id));
+    }
+
 }
