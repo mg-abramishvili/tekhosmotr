@@ -9,7 +9,7 @@
                     <h1>{{ $techpoint->title }}</h1>
                     <div class="row">
 
-                        <div class="col-12 col-md-5">
+                        <div class="col-12 col-md-5 techpoint-detail-left">
                             <div class="techpoint-detail-item">
                                 <div class="techpoint-detail-item-label">
                                     ИНН
@@ -20,7 +20,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-7">
+                        <div class="col-12 col-md-7 techpoint-detail-right">
                             <div class="techpoint-detail-item">
                                 <div class="techpoint-detail-item-label">
                                     ОГРН/ОГРНИП

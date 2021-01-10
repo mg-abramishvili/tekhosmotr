@@ -80,18 +80,6 @@ body {
     color: #255299;
 }
 
-@media (max-width: 900px) {
-
-    .page-content-left {
-        order: 2;
-    }
-
-    .page-content-right {
-        order: 1;
-    }
-
-}
-
 .row {
     margin: 0;
 }
@@ -457,6 +445,18 @@ header .row {
 
 .techpoint-detail {
     padding: 25px;
+}
+
+@media (max-width: 900px) {
+
+    .techpoint-detail-left {
+        order: 2;
+    }
+
+    .techpoint-detail-right {
+        order: 1;
+    }
+
 }
 
 .techpoint-detail h1 {
