@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Mail;
-
+use App\Models\Lead;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -11,14 +11,11 @@ class NewLead extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $lead;
+
+    public function __construct(Lead $lead)
     {
-        //
+        $this->lead = $lead;
     }
 
     /**
@@ -28,6 +25,9 @@ class NewLead extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.lead');
+        return $this->markdown('emails.lead')
+            ->with([
+            'station' => $this->lead->station,
+        ]);
     }
 }

@@ -83,7 +83,7 @@
 
                     </div>
 
-                    <a href="/techpoint/{{$techpoint->id}}/email" class="btn btn-lg btn-primary">Записаться</a>
+                    <a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#lead">Записаться</a>
 
                 </div>
             </div>
@@ -95,6 +95,71 @@
         </div>
     </div>
 
+
+    <div class="modal" id="lead">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form action="/email" method="post" enctype="multipart/form-data">@csrf
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="station" placeholder="station">
+                            @if ($errors->has('station'))
+                                <div class="alert alert-danger">
+                                    <!--{{ $errors->first('station') }}-->
+                                    Укажите station
+                                </div>
+                            @endif
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="date" placeholder="date">
+                            @if ($errors->has('date'))
+                                <div class="alert alert-danger">
+                                    <!--{{ $errors->first('date') }}-->
+                                    Укажите date
+                                </div>
+                            @endif
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="time" placeholder="time">
+                            @if ($errors->has('time'))
+                                <div class="alert alert-danger">
+                                    <!--{{ $errors->first('time') }}-->
+                                    Укажите time
+                                </div>
+                            @endif
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="name">
+                            @if ($errors->has('name'))
+                                <div class="alert alert-danger">
+                                    <!--{{ $errors->first('name') }}-->
+                                    Укажите name
+                                </div>
+                            @endif
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="phone" placeholder="phone">
+                            @if ($errors->has('phone'))
+                                <div class="alert alert-danger">
+                                    <!--{{ $errors->first('phone') }}-->
+                                    Укажите phone
+                                </div>
+                            @endif
+                        </div>
+
+                        <button type="submit" class="btn btn-lg btn-success">Сохранить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     
 
 @endsection

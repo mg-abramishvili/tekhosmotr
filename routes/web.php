@@ -29,5 +29,5 @@ Route::get('/p/{slug}', 'App\Http\Controllers\FrontPageController@show');
 Route::get('/city/{city}', 'App\Http\Controllers\FrontTechpointController@index');
 Route::get('/techpoint/{id}', 'App\Http\Controllers\FrontTechpointController@show');
 
-// LEAD SENDING
-Route::get('/techpoint/{id}/email', 'App\Http\Controllers\FrontTechpointController@lead');
+// LEADS
+Route::post('/email', 'App\Http\Controllers\FrontTechpointController@lead');
