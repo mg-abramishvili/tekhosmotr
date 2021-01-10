@@ -25,6 +25,14 @@ body {
     padding: 0 75px;
 }
 
+@media (max-width: 900px) {
+
+    .page-content .container {
+        padding: 0 20px;
+    }
+
+}
+
 .page-content h1 {
     margin-bottom: 30px;
     font-weight: 700;
@@ -95,6 +103,14 @@ header {
     box-shadow: rgba(0, 0, 0, 0.165) 0px 0px 6px 2px;
 }
 
+@media (max-width: 900px) {
+
+    header {
+        height: auto;
+    }
+
+}
+
 header .container,
 header .row {
     position: relative;
@@ -103,6 +119,15 @@ header .row {
 
 .header-logo a {
     font-weight: 700;
+}
+
+@media (max-width: 900px) {
+
+    .header-logo a {
+        padding: 18px 0;
+        display: inline-block;
+    }
+
 }
 
 .header-logo button {
@@ -117,8 +142,28 @@ header .row {
     margin-left: 30px;
 }
 
+@media (max-width: 900px) {
+
+    .header-logo button {
+        display: inline-block;
+    }
+
+}
+
 .header-nav .navbar {
     padding: 0;
+}
+
+@media (max-width: 900px) {
+
+    .navbar-toggler {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #255299;
+        margin-top: -50px;
+    }
+
 }
 
 .header-nav .navbar-expand-lg .navbar-nav {
@@ -132,6 +177,14 @@ header .row {
     font-size: 15px;
     transition: 300ms;
     -webkit-transition: 300ms;
+}
+
+@media (max-width: 900px) {
+
+    .header-nav .navbar-expand-lg .navbar-nav .nav-link {
+        text-align: center;
+    }
+
 }
 
 .header-nav .navbar-expand-lg .navbar-nav .nav-link:hover {
@@ -161,10 +214,32 @@ header .row {
     box-shadow: 2px 0 2px 0 rgba(0,0,0,.1);
 }
 
+@media (max-width: 900px) {
+
+    .left-panel {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        order: 2;
+    }
+
+}
+
 .right-panel {
     -ms-flex: 0 0 70%;
     flex: 0 0 70%;
     max-width: 70%;
+}
+
+@media (max-width: 900px) {
+
+    .right-panel {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        order: 1;
+    }
+
 }
 
 .search {
@@ -203,6 +278,15 @@ header .row {
     overflow-y: scroll;
     padding-bottom: 25px;
     border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+@media (max-width: 900px) {
+
+    .main-techpoints-list {
+        height: auto;
+        padding-bottom: 0;
+    }
+
 }
 
 .main-techpoints-list-item {
@@ -282,6 +366,14 @@ header .row {
     position: relative;
 }
 
+@media (max-width: 900px) {
+
+    .main-map {
+        height: 250px;
+    }
+
+}
+
 .main-map #map {
     width: 100%; height: 100%; padding: 0; margin: 0;
 }
@@ -308,12 +400,32 @@ header .row {
     font-weight: 100;
 }
 
+@media (max-width: 900px) {
+
+    .modal .modal-header .close {
+        right: 25px;
+        top: 25px;
+        font-size: 50px;
+        color: #333;
+        z-index: 999;
+    }
+
+}
+
 .modal ul {
     padding: 0;
     margin: 0;
     list-style-type: none;
     columns: 3;
     padding: 35px;
+}
+
+@media (max-width: 900px) {
+
+    .modal ul {
+        columns: auto;
+    }
+
 }
 
 .modal ul li {
