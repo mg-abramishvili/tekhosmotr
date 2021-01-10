@@ -503,7 +503,7 @@ header .row {
 
 @media (max-width: 900px) {
 
-    .techpoint-detail .btn-primary {
+    .techpoint-detail .btn-lead {
         position: fixed;
         bottom: 0;
         left: 0;
@@ -514,6 +514,74 @@ header .row {
         z-index: 89;
     }
 
+}
+
+#lead .modal-body {
+    padding: 25px 50px;
+}
+
+#lead .col-md-4,
+#lead .col-md-12 {
+    padding: 0 5px;
+}
+
+#lead .flickity-prev-next-button {
+    width: 30px;
+    height: 30px;
+}
+
+.date-pick-slider {
+    padding-left: 5px;
+}
+
+#lead .flickity-prev-next-button.previous {
+    left: -30px;
+}
+
+#lead .flickity-prev-next-button.next {
+    right: -30px;
+}
+
+#lead .form-control {
+    height: auto;
+    padding: 10px;
+}
+
+.date-pick-item {
+    width: calc(100% / 7 - 9px);
+    margin: 0 5px;
+    display: block;
+    z-index: 10;
+    font-size: 14px;
+    text-align: center;
+}
+
+.date-pick-item input[type=radio] {
+	display: none;
+}
+
+.date-pick-item label {
+	display: inline-block;
+	cursor: pointer;
+	padding: 5px 15px;
+	line-height: 1.6;
+	border: 2px solid #ddd;
+	border-radius: 6px;
+    user-select: none;
+    margin: 0;
+}
+ 
+.date-pick-item input[type=radio]:checked + label {
+	border-color: #255299;
+}
+ 
+.date-pick-item label:hover {
+	color: #255299;
+}
+ 
+.date-pick-item input[type=radio]:disabled + label {
+	background: #efefef;
+	color: #255299;
 }
 
 .page-map {
