@@ -501,15 +501,19 @@ header .row {
     color: #255299;
 }
 
-.techpoint-detail .btn-primary {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-radius: 0;
-    width: 100%;
-    padding: 15px;
-    z-index: 89;
+@media (max-width: 900px) {
+
+    .techpoint-detail .btn-primary {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        width: 100%;
+        padding: 15px;
+        z-index: 89;
+    }
+
 }
 
 .page-map {
