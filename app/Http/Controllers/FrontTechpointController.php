@@ -31,13 +31,23 @@ class FrontTechpointController extends Controller
 
     public function lead(Request $request) {
 
-        $this->validate($request, [
+        $rules = [
             'station' => 'required',
             'date' => 'required',
             'time' => 'required',
             'name' => 'required',
             'phone' => 'required',
-        ]);
+        ];
+    
+        $customMessages = [
+            'station.required' => 'Укажите станцию',
+            'date.required' => 'Укажите дату',
+            'time.required' => 'Укажите время',
+            'name.required' => 'Укажите имя',
+            'phone.required' => 'Укажите телефон',
+        ];
+    
+        $this->validate($request, $rules, $customMessages);
 
         $data = request()->all();
         $leads = new Lead();
@@ -50,7 +60,7 @@ class FrontTechpointController extends Controller
 
         $lead = Lead::find($leads->id);
 
-        Mail::to('mg@abramishvili.net')->send(new NewLead($lead));
+        //Mail::to('mg@abramishvili.net')->send(new NewLead($lead));
         
         return redirect()->back();
     }

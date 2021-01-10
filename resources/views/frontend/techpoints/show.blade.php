@@ -104,14 +104,17 @@
                 </div>
                 <div class="modal-body">
                     <h4 class="text-center mb-4">Запись на техосмотр в <br>{{ $techpoint->title }}</h4>
-                    <form action="/email" method="post" enctype="multipart/form-data">@csrf
+                    <form action="/email" method="post" id="lead_form" enctype="multipart/form-data">@csrf
+                        
+                        <div class="flash-success">
+                            <div class="alert alert-success" role="alert">
+                                Заявка успешно отправлена!
+                            </div>
+                        </div>
+                    
                         <div class="form-group">
                             <input type="hidden" name="station" value="{{ $techpoint->title }}">
-                            @if ($errors->has('station'))
-                                <div class="alert alert-danger">
-                                    Укажите station
-                                </div>
-                            @endif
+                            <span class="station_error text-danger"></span>
                         </div>
 
                         <div class="form-group">
@@ -273,11 +276,7 @@
                                 </div>
                             </div>
 
-                            @if ($errors->has('date'))
-                                <div class="alert alert-danger">
-                                    Укажите дату
-                                </div>
-                            @endif
+                            <span class="date_error text-center text-danger"></span>
                             
                         </div>
 
@@ -288,6 +287,7 @@
                                 <label>Время</label>
 
                                 <select name="time" class="form-control">
+                                    <option disabled selected value>Выберите время</option>
                                     <option value="9:00">9:00</option>
                                     <option value="10:00">10:00</option>
                                     <option value="11:00">11:00</option>
@@ -299,40 +299,27 @@
                                     <option value="17:00">17:00</option>
                                     <option value="18:00">18:00</option>
                                 </select>
-
-                                @if ($errors->has('time'))
-                                    <div class="alert alert-danger">
-                                        Укажите время
-                                    </div>
-                                @endif
+                                <span class="time_error text-danger"></span>
                             </div>
                         </div>
 
                         <div class="col-12 col-md-4">
                             <div class="form-group">
                                 <label>Имя</label>
-                                <input type="text" class="form-control" name="name" placeholder="Александр">
-                                @if ($errors->has('name'))
-                                    <div class="alert alert-danger">
-                                        Укажите имя
-                                    </div>
-                                @endif
+                                <input type="text" class="form-control" name="name" placeholder="Александр" reqired>
+                                <span class="name_error text-danger"></span>
                             </div>
                         </div>
 
                         <div class="col-12 col-md-4">
                             <div class="form-group">
                                 <label>Телефон</label>
-                                <input type="text" class="form-control" name="phone" placeholder="+7 (999) 123-45-67" required>
-                                @if ($errors->has('phone'))
-                                    <div class="alert alert-danger">
-                                        Укажите телефон
-                                    </div>
-                                @endif
+                                <input type="text" class="form-control" name="phone" placeholder="+7 (999) 123-45-67">
+                                <span class="phone_error text-danger"></span>
                             </div>
                         </div>
                         <div class="col-12 col-md-12 text-center">
-                        <button type="submit" class="btn btn-lg btn-primary">Отправить</button>
+                        <button type="button" class="btn btn-lg btn-primary" id="lead_submit" onclick="storeData();">Отправить</button>
                         <p class="text-secondary mt-2"><small>Нажимая кнопку "Отправить", вы соглашаетесь с обработкой данных.</small></p>
                         </div>
 
@@ -395,4 +382,61 @@
             $('.date-pick-slider').flickity('resize');
         });
     </script>
+
+    <script>
+        $('.flash-success').hide();
+        function storeData() {
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+            var station = $('input[name=station]').val();
+            var date = $('input[name=date]:checked').val();
+            var time = $('select[name=time]').val();
+            var name = $('input[name=name]').val();
+            var phone = $('input[name=phone]').val();
+
+            $('.flash-success').hide();
+            $('.station_error').hide();
+            $('.date_error').hide();
+            $('.time_error').hide();
+            $('.name_error').hide();
+            $('.phone_error').hide();
+
+            $.ajax({
+                type: 'POST',
+                url: '/email',
+                data: {
+                    _token: CSRF_TOKEN,
+                    station: station,
+                    date: date,
+                    time: time,
+                    name: name,
+                    phone: phone,
+                },
+
+                success: function (data) {
+                    $('.flash-success').show();
+                    $('#lead_form').trigger("reset");
+                    setTimeout(function() {
+                        $('.flash-success').hide()
+                    }, 3000);
+                    $('#lead_submit').attr('disabled', true);
+                    setTimeout(function() {
+                        $('#lead_submit').removeAttr("disabled");
+                    }, 3000);
+                },
+
+                error: function (data) {
+                    var errors = data.responseJSON;
+                    if($.isEmptyObject(errors) == false) {
+                        $.each(errors.errors, function (key, value) {
+                            var ErrorID = '.' + key + '_error';
+                            $(ErrorID).show();
+                            $(ErrorID).text(value);
+                        })
+                    }
+                }
+
+            });
+        }
+    </script>
+    
 @endsection
