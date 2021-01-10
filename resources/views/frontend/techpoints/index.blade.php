@@ -12,7 +12,7 @@
                     <div class="main-techpoints-list-item">
                         <a href="/techpoint/{{ $techpoint->id }}">
                             <p class="title">{{ $techpoint->title }}</p>
-                            <span class="address">г. @foreach($techpoint->cities as $city) {{ $city->city }}{{''}}@endforeach, {{ $techpoint->address }}</span>
+                            <span class="address">г. @foreach($techpoint->cities as $ct) {{ $ct->city }}{{''}}@endforeach, {{ $techpoint->address }}</span>
                             <span class="tel">{{ $techpoint->tel }}</span>
                         </a>
                     </div>
