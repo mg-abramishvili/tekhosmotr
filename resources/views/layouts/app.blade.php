@@ -47,6 +47,9 @@
                             <a class="nav-link" href="/backend/pages">Страницы</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/backend/leads">Заявки</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                     Выйти
