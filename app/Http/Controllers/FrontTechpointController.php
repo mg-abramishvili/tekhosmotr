@@ -6,6 +6,7 @@ use App\Models\Techpoint;
 use App\Models\City;
 use App\Mail\NewLead;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class FrontTechpointController extends Controller
 {
