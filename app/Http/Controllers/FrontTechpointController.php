@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Techpoint;
 use App\Models\City;
+use App\Models\Cat;
 use App\Models\Lead;
 use App\Mail\NewLead;
 use Illuminate\Http\Request;
@@ -25,8 +26,9 @@ class FrontTechpointController extends Controller
     {
         $city = '';
         $goroda = City::all();
+        $cats = Cat::all();
         $techpoint = Techpoint::find($id);
-        return view('frontend.techpoints.show', compact('techpoint', 'goroda', 'city'));
+        return view('frontend.techpoints.show', compact('techpoint', 'cats', 'goroda', 'city'));
     }
 
     public function lead(Request $request) {
@@ -35,6 +37,8 @@ class FrontTechpointController extends Controller
             'station' => 'required',
             'date' => 'required',
             'time' => 'required',
+            'number' => 'required',
+            'category' => 'required',
             'name' => 'required',
             'phone' => 'required',
         ];
@@ -43,6 +47,8 @@ class FrontTechpointController extends Controller
             'station.required' => 'Укажите станцию',
             'date.required' => 'Укажите дату',
             'time.required' => 'Укажите время',
+            'number.required' => 'Укажите госномер',
+            'category.required' => 'Укажите категорию',
             'name.required' => 'Укажите имя',
             'phone.required' => 'Укажите телефон',
         ];
@@ -54,6 +60,8 @@ class FrontTechpointController extends Controller
         $leads->station = $data['station'];
         $leads->date = $data['date'];
         $leads->time = $data['time'];
+        $leads->number = $data['number'];
+        $leads->category = $data['category'];
         $leads->name = $data['name'];
         $leads->phone = $data['phone'];
         $leads->save();

@@ -10,6 +10,6 @@ class Lead extends Model
     use HasFactory;
 
     protected $fillable = [
-        'station', 'date', 'time', 'name', 'phone'
+        'station', 'date', 'time', 'name', 'phone', 'number', 'category'
     ];
 }

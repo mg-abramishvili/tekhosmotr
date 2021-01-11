@@ -10,6 +10,12 @@
 Время:<br>{{ $time }}
 <br><br>
 
+Категория:<br>{{ $category }}
+<br><br>
+
+Госномер:<br>{{ $number }}
+<br><br>
+
 Имя:<br>{{ $name }}
 <br><br>
 

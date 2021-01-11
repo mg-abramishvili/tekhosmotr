@@ -305,8 +305,32 @@
 
                         <div class="col-12 col-md-4">
                             <div class="form-group">
-                                <label>Имя</label>
-                                <input type="text" class="form-control" name="name" placeholder="Александр" reqired>
+                                <label>Категория ТС</label>
+
+                                <select name="category" class="form-control">
+                                    <option disabled selected value>Выберите категорию</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="M">M</option>
+                                </select>
+                                <span class="category_error text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-4">
+                            <div class="form-group">
+                                <label>Госномер</label>
+                                <input type="text" class="form-control" name="number" placeholder="Номер">
+                                <span class="number_error text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-8">
+                            <div class="form-group">
+                                <label>ФИО полностью</label>
+                                <input type="text" class="form-control" name="name" placeholder="Иванов Иван Иванович">
                                 <span class="name_error text-danger"></span>
                             </div>
                         </div>
@@ -390,6 +414,8 @@
             var station = $('input[name=station]').val();
             var date = $('input[name=date]:checked').val();
             var time = $('select[name=time]').val();
+            var number = $('input[name=number]').val();
+            var category = $('select[name=category]').val();
             var name = $('input[name=name]').val();
             var phone = $('input[name=phone]').val();
 
@@ -397,6 +423,8 @@
             $('.station_error').hide();
             $('.date_error').hide();
             $('.time_error').hide();
+            $('.number_error').hide();
+            $('.category_error').hide();
             $('.name_error').hide();
             $('.phone_error').hide();
 
@@ -408,6 +436,8 @@
                     station: station,
                     date: date,
                     time: time,
+                    number: number,
+                    category: category,
                     name: name,
                     phone: phone,
                 },

@@ -30,6 +30,8 @@ class NewLead extends Mailable
             'station' => $this->lead->station,
             'date' => $this->lead->date,
             'time' => $this->lead->time,
+            'number' => $this->lead->number,
+            'category' => $this->lead->category,
             'name' => $this->lead->name,
             'phone' => $this->lead->phone,
         ]);

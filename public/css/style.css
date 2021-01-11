@@ -521,6 +521,7 @@ header .row {
 }
 
 #lead .col-md-4,
+#lead .col-md-8,
 #lead .col-md-12 {
     padding: 0 5px;
 }
