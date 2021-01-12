@@ -9,18 +9,21 @@
         </div>
 
         <form action="/backend/techpoints" method="post" enctype="multipart/form-data">@csrf
-            <div class="form-group">
-                <label class="font-weight-bold">Название</label>
-                <input type="text" class="form-control" name="title" placeholder="Название">
-                @if ($errors->has('title'))
-                    <div class="alert alert-danger">
-                        <!--{{ $errors->first('title') }}-->
-                        Укажите название
-                    </div>
-                @endif
-            </div>
 
             <div class="row">
+
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label class="font-weight-bold">Название</label>
+                        <input type="text" class="form-control" name="title" placeholder="Название">
+                        @if ($errors->has('title'))
+                            <div class="alert alert-danger">
+                                <!--{{ $errors->first('title') }}-->
+                                Укажите название
+                            </div>
+                        @endif
+                    </div>
+                </div>
 
                 <div class="col-12 col-md-6">
                     <div class="form-group">
