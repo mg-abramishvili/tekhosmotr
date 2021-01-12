@@ -52,6 +52,7 @@
                         Укажите координаты
                     </div>
                 @endif
+                <a href="https://yandex.ru/map-constructor/location-tool/" target="_blank">определение координат</a>
             </div>
 
             <div class="form-group">
