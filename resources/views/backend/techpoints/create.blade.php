@@ -10,6 +10,7 @@
 
         <form action="/backend/techpoints" method="post" enctype="multipart/form-data">@csrf
             <div class="form-group">
+                <label>Название</label>
                 <input type="text" class="form-control" name="title" placeholder="Название">
                 @if ($errors->has('title'))
                     <div class="alert alert-danger">
@@ -20,6 +21,7 @@
             </div>
 
             <div class="form-group">
+                <label>Город</label>
                 <select class="form-control" name="cities">
                     <option disabled selected value> -- Укажите город -- </option>
                     @foreach($cities as $city)
@@ -35,6 +37,7 @@
             </div>
 
             <div class="form-group">
+                <label>Адрес</label>
                 <input type="text" class="form-control" name="address" placeholder="Адрес">
                 @if ($errors->has('address'))
                     <div class="alert alert-danger">
@@ -45,6 +48,7 @@
             </div>
 
             <div class="form-group">
+                <label>Координаты</label>
                 <input type="text" class="form-control" name="coordinates" placeholder="Координаты">
                 @if ($errors->has('coordinates'))
                     <div class="alert alert-danger">
@@ -56,6 +60,7 @@
             </div>
 
             <div class="form-group">
+                <label>Телефон</label>
                 <input type="text" class="form-control" name="tel" placeholder="Телефон">
                 @if ($errors->has('tel'))
                     <div class="alert alert-danger">
@@ -66,6 +71,7 @@
             </div>
 
             <div class="form-group">
+                <label>E-mail</label>
                 <input type="text" class="form-control" name="email" placeholder="E-mail">
                 @if ($errors->has('email'))
                     <div class="alert alert-danger">
@@ -76,6 +82,7 @@
             </div>
 
             <div class="form-group">
+                <label>Кнопка записи</label>
                 <select class="form-control" name="status">
                         <option value="enabled" selected>Вкл</option>
                         <option value="disabled">Выкл</option>
@@ -89,6 +96,7 @@
             </div>
 
             <div class="form-group">
+                <label>Номер</label>
                 <input type="text" class="form-control" name="number" placeholder="Номер">
                 @if ($errors->has('number'))
                     <div class="alert alert-danger">
@@ -99,6 +107,7 @@
             </div>
 
             <div class="form-group">
+                <label>Номер аттестата</label>
                 <input type="text" class="form-control" name="att_number" placeholder="Номер аттестата">
                 @if ($errors->has('att_number'))
                     <div class="alert alert-danger">
@@ -109,6 +118,7 @@
             </div>
 
             <div class="form-group">
+                <label>ИНН</label>
                 <input type="text" class="form-control" name="inn" placeholder="ИНН">
                 @if ($errors->has('inn'))
                     <div class="alert alert-danger">
@@ -119,6 +129,7 @@
             </div>
 
             <div class="form-group">
+                <label>ОГРН</label>
                 <input type="text" class="form-control" name="ogrn" placeholder="ОГРН">
                 @if ($errors->has('ogrn'))
                     <div class="alert alert-danger">
@@ -129,6 +140,7 @@
             </div>
 
             <div class="form-group">
+                <label>Категории</label>
                 <select class="form-control" name="cats[]" multiple>
                     @foreach($cats as $cat)
                         <option value="{{ $cat->id }}">{{ $cat->title }}</option>
