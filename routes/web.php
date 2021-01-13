@@ -11,7 +11,7 @@ Auth::routes([
     'register' => false,
     'reset' => false
 ]);
-
+/*
 Route::get('/', function () {
     return redirect('/city/ufa');
 });
@@ -35,7 +35,7 @@ Route::get('/techpoint/{id}', 'App\Http\Controllers\FrontTechpointController@sho
 
 // LEADS
 Route::post('/email', 'App\Http\Controllers\FrontTechpointController@lead');
-
+*/
 Route::get("{any}", function() {
     return view('blank');
 });
