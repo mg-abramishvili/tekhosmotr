@@ -13,15 +13,11 @@ Auth::routes([
 ]);
 
 Route::get('/', function () {
-    //return redirect('/city/ufa');
-    return view('blank');
+    return redirect('/city/ufa');
 });
 
 // TECHPOINTS (BACKEND)
-//Route::resource('/backend/techpoints', TechpointController::class)->middleware('auth');
-Route::get('/backend/techpoints', function () {
-    return view('blank');
-});
+Route::resource('/backend/techpoints', TechpointController::class)->middleware('auth');
 Route::get('/backend/techpoints/delete/{id}','App\Http\Controllers\TechpointController@delete')->middleware('auth');
 
 // PAGES (BACKEND)
@@ -39,3 +35,7 @@ Route::get('/techpoint/{id}', 'App\Http\Controllers\FrontTechpointController@sho
 
 // LEADS
 Route::post('/email', 'App\Http\Controllers\FrontTechpointController@lead');
+
+Route::get("{any}", function() {
+    return view('blank');
+});
