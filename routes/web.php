@@ -36,6 +36,6 @@ Route::get('/techpoint/{id}', 'App\Http\Controllers\FrontTechpointController@sho
 // LEADS
 Route::post('/email', 'App\Http\Controllers\FrontTechpointController@lead');
 */
-Route::get("{any}", function() {
+Route::get("/{any}", function() {
     return view('blank');
 });
