@@ -24,12 +24,19 @@
                 <div class="col-12 col-lg-3 header-logo">
                     <a href="/"><img src="/img/logo.svg" alt="БашТехОсмотр"></a>
                     <div class="city-ch">
-                    Ваш город: 
-                        @foreach($goroda as $gorod)
-                            @if($gorod->city_code == $city)
-                            <button data-toggle="modal" data-target="#myModal">{{ $gorod->city }}</button>
-                            @endif
-                        @endforeach
+                        @if(Route::currentRouteName() == 'indexpage')
+                            Ваш город:
+                            @foreach($goroda as $gorod)
+                                @if($gorod->city_code == $city)
+                                <button data-toggle="modal" data-target="#myModal">{{ $gorod->city }}</button>
+                                @endif
+                            @endforeach
+                        @elseif(Route::currentRouteName() == 'techpointpage')
+                            Ваш город:
+                            @foreach($techpoint->cities as $city)
+                                <button data-toggle="modal" data-target="#myModal">{{ $city->city }}</button>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
                 <div class="col-12 col-lg-9 header-nav">

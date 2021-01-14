@@ -30,8 +30,8 @@ Route::resource('/backend/leads', LeadController::class)->middleware('auth');
 Route::get('/p/{slug}', 'App\Http\Controllers\FrontPageController@show');
 
 // TECHPOINTS (FRONT)
-Route::get('/city/{city}', 'App\Http\Controllers\FrontTechpointController@index');
-Route::get('/techpoint/{id}', 'App\Http\Controllers\FrontTechpointController@show');
+Route::get('/city/{city}', 'App\Http\Controllers\FrontTechpointController@index')->name('indexpage');
+Route::get('/techpoint/{id}', 'App\Http\Controllers\FrontTechpointController@show')->name('techpointpage');
 
 // LEADS
 Route::post('/email', 'App\Http\Controllers\FrontTechpointController@lead');
