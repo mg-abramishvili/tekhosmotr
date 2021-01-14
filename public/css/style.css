@@ -145,6 +145,7 @@ header .row {
     border-bottom: 1px dashed;
     padding: 0;
     position: relative;
+    margin-left: 7px;
 }
 
 @media (max-width: 900px) {
@@ -163,8 +164,8 @@ header .row {
     transform: translateY(-50%);
     width: 20px;
     height: 20px;
-    opacity: 0.6;
-    right: -40px;
+    opacity: 0.45;
+    right: -17px;
     background: url(../img/arrow-down-sign-to-navigate.svg) center center;
     background-size: contain;
     background-repeat: no-repeat;
