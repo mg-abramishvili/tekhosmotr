@@ -23,12 +23,14 @@
             <div class="row align-items-center">
                 <div class="col-12 col-lg-2 header-logo">
                     <a href="/">LOGO</a>
+                    <div class="city-ch">
                     Ваш город: 
-                    @foreach($goroda as $gorod)
-                        @if($gorod->city_code == $city)
-                        <button data-toggle="modal" data-target="#myModal">{{ $gorod->city }}</button>
-                        @endif
-                    @endforeach
+                        @foreach($goroda as $gorod)
+                            @if($gorod->city_code == $city)
+                            <button data-toggle="modal" data-target="#myModal">{{ $gorod->city }}</button>
+                            @endif
+                        @endforeach
+                    </div>
                 </div>
                 <div class="col-12 col-lg-10 header-nav">
                     <nav class="navbar navbar-expand-lg">
