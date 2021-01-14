@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-lg-3 header-logo">
-                    <a href="/">LOGO</a>
+                    <a href="/"><img src="/img/logo.svg" alt="БашТехОсмотр"></a>
                     <div class="city-ch">
                     Ваш город: 
                         @foreach($goroda as $gorod)

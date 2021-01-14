@@ -130,6 +130,10 @@ header .row {
 
 }
 
+.header-logo a img {
+    width: 100px;
+}
+
 .header-logo .city-ch {
     margin-left: 30px;
     display: inline-block;
