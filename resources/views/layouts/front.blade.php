@@ -23,6 +23,7 @@
             <div class="row align-items-center">
                 <div class="col-12 col-lg-2 header-logo">
                     <a href="/">LOGO</a>
+                    Ваш город: 
                     @foreach($goroda as $gorod)
                         @if($gorod->city_code == $city)
                         <button data-toggle="modal" data-target="#myModal">{{ $gorod->city }}</button>
