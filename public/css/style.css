@@ -161,11 +161,11 @@ header .row {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     opacity: 0.6;
     right: -40px;
-    background: url(../img/cursor.svg) center center;
+    background: url(../img/arrow-down-sign-to-navigate.svg) center center;
     background-size: contain;
     background-repeat: no-repeat;
 }
