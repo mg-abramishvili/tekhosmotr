@@ -23,7 +23,7 @@
             <div class="row align-items-center">
                 <div class="col-12 col-lg-4 header-logo">
 
-                    @elseif(Route::currentRouteName() == 'techpointpage')
+                    @if(Route::currentRouteName() == 'techpointpage')
                         @foreach($techpoint->cities as $city)
                             <a href="/city/{{ $city->city_code }}"><img src="/img/logo.svg" alt="БашТехОсмотр"></a>
                         @endforeach
