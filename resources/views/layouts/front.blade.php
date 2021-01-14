@@ -21,7 +21,7 @@
     <header>
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-lg-3 header-logo">
+                <div class="col-12 col-lg-4 header-logo">
                     <a href="/"><img src="/img/logo.svg" alt="БашТехОсмотр"></a>
                     <div class="city-ch">
                         @if(Route::currentRouteName() == 'indexpage')
@@ -39,7 +39,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="col-12 col-lg-9 header-nav">
+                <div class="col-12 col-lg-8 header-nav">
                     <nav class="navbar navbar-expand-lg">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
