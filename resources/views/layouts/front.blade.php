@@ -22,7 +22,15 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-lg-4 header-logo">
-                    <a href="/"><img src="/img/logo.svg" alt="БашТехОсмотр"></a>
+
+                    @elseif(Route::currentRouteName() == 'techpointpage')
+                        @foreach($techpoint->cities as $city)
+                            <a href="/city/{{ $city->city_code }}"><img src="/img/logo.svg" alt="БашТехОсмотр"></a>
+                        @endforeach
+                    @else
+                        <a href="/"><img src="/img/logo.svg" alt="БашТехОсмотр"></a>
+                    @endif
+
                     <div class="city-ch">
                         @if(Route::currentRouteName() == 'indexpage')
                             Ваш город:
