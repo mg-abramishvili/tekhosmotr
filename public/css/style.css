@@ -162,8 +162,8 @@ header .row {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
     opacity: 0.45;
     right: -17px;
     background: url(../img/arrow-down-sign-to-navigate.svg) center center;
