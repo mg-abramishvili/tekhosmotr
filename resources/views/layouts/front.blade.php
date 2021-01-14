@@ -21,7 +21,7 @@
     <header>
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-lg-2 header-logo">
+                <div class="col-12 col-lg-3 header-logo">
                     <a href="/">LOGO</a>
                     <div class="city-ch">
                     Ваш город: 
@@ -32,7 +32,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="col-12 col-lg-10 header-nav">
+                <div class="col-12 col-lg-9 header-nav">
                     <nav class="navbar navbar-expand-lg">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
