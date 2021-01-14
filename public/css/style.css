@@ -144,6 +144,7 @@ header .row {
     font-weight: 700;
     border-bottom: 1px dashed;
     padding: 0;
+    position: relative;
 }
 
 @media (max-width: 900px) {
@@ -152,6 +153,21 @@ header .row {
         display: inline-block;
     }
 
+}
+
+.header-logo button:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    opacity: 0.6;
+    right: -40px;
+    background: url(../img/cursor.svg) center center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .header-nav .navbar {
