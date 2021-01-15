@@ -42,6 +42,7 @@ class TechpointController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'address' => 'required',
+            'legal_address' => 'required',
             'tel' => 'required',
             'coordinates' => 'required',
         ]);
@@ -50,6 +51,7 @@ class TechpointController extends Controller
         $techpoints = new Techpoint();
         $techpoints->title = $data['title'];
         $techpoints->address = $data['address'];
+        $techpoints->legal_address = $data['legal_address'];
         $techpoints->tel = $data['tel'];
         $techpoints->email = $data['email'];
         $techpoints->coordinates = $data['coordinates'];
@@ -69,6 +71,7 @@ class TechpointController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'address' => 'required',
+            'legal_address' => 'required',
             'tel' => 'required',
             'coordinates' => 'required',
         ]);
@@ -77,6 +80,7 @@ class TechpointController extends Controller
         $techpoints = Techpoint::find($data['id']);
         $techpoints->title = $data['title'];
         $techpoints->address = $data['address'];
+        $techpoints->legal_address = $data['legal_address'];
         $techpoints->tel = $data['tel'];
         $techpoints->email = $data['email'];
         $techpoints->coordinates = $data['coordinates'];

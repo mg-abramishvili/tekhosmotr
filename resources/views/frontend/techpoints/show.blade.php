@@ -83,8 +83,10 @@
 
                     </div>
 
-                    <a href="#" class="btn btn-lg btn-primary btn-lead" data-toggle="modal" data-target="#lead">Записаться</a>
-
+                    @if($techpoint->status == 'enabled')
+                        <a href="#" class="btn btn-lg btn-primary btn-lead" data-toggle="modal" data-target="#lead">Записаться</a>
+                    @else
+                    @endif
                 </div>
             </div>
             <div class="col-12 col-lg-6 techpoint-detail-right">

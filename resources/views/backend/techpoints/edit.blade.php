@@ -15,7 +15,7 @@
 
             <div class="row">
 
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-12">
                     <div class="form-group">
                         <label class="font-weight-bold">Название</label>
                         <input type="text" class="form-control" name="title" placeholder="Название" value="{{ $techpoint->title }}">
@@ -41,6 +41,19 @@
                             <div class="alert alert-danger">
                                 <!--{{ $errors->first('cities') }}-->
                                 Укажите город
+                            </div>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label class="font-weight-bold">Юр. адрес</label>
+                        <input type="text" class="form-control" name="legal_address" placeholder="Юр. адрес" value="{{ $techpoint->legal_address }}">
+                        @if ($errors->has('legal_address'))
+                            <div class="alert alert-danger">
+                                <!--{{ $errors->first('legal_address') }}-->
+                                Укажите юр. адрес
                             </div>
                         @endif
                     </div>
@@ -173,8 +186,8 @@
             <div class="form-group">
                 <label class="font-weight-bold">Кнопка записи</label>
                 <select class="form-control" name="status">
-                        <option value="enabled" selected>Вкл</option>
-                        <option value="disabled">Выкл</option>
+                        <option value="enabled" @if($techpoint->status == 'enabled') selected @endif>Вкл</option>
+                        <option value="disabled" @if($techpoint->status == 'disabled') selected @endif>Выкл</option>
                 </select>
                 @if ($errors->has('status'))
                     <div class="alert alert-danger">

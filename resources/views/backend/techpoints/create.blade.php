@@ -12,7 +12,7 @@
 
             <div class="row">
 
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-12">
                     <div class="form-group">
                         <label class="font-weight-bold">Название</label>
                         <input type="text" class="form-control" name="title" placeholder="Название">
@@ -38,6 +38,19 @@
                             <div class="alert alert-danger">
                                 <!--{{ $errors->first('cities') }}-->
                                 Укажите город
+                            </div>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label class="font-weight-bold">Юр. адрес</label>
+                        <input type="text" class="form-control" name="legal_address" placeholder="Юр. адрес">
+                        @if ($errors->has('legal_address'))
+                            <div class="alert alert-danger">
+                                <!--{{ $errors->first('legal_address') }}-->
+                                Укажите юр. адрес
                             </div>
                         @endif
                     </div>
