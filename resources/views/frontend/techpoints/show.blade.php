@@ -9,7 +9,7 @@
                     <h1>{{ $techpoint->title }}</h1>
                     <div class="row">
 
-                        <div class="col-12 col-md-5">
+                        <div class="col-12 col-md-6">
                             <div class="techpoint-detail-item">
                                 <div class="techpoint-detail-item-label">
                                     ИНН
@@ -20,7 +20,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-7">
+                        <div class="col-12 col-md-6">
                             <div class="techpoint-detail-item">
                                 <div class="techpoint-detail-item-label">
                                     ОГРН/ОГРНИП
@@ -31,7 +31,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-5">
+                        <div class="col-12 col-md-6">
                             <div class="techpoint-detail-item">
                                 <div class="techpoint-detail-item-label">
                                     Номер аттестата
@@ -42,7 +42,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-7">
+                        <div class="col-12 col-md-6">
                             <div class="techpoint-detail-item">
                                 <div class="techpoint-detail-item-label">
                                     Аккредитованные категории ТС
@@ -62,7 +62,7 @@
                                 <div class="techpoint-detail-item-label">
                                     Адрес
                                 </div>
-                                <div class="techpoint-detail-item-value pr-4">
+                                <div class="techpoint-detail-item-value pr-2">
                                     @foreach($techpoint->cities as $city){{ $city->city }}@endforeach{{''}}, {{ $techpoint->address }}
                                 </div>
                             </div>
