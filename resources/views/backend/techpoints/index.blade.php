@@ -15,7 +15,7 @@
         
             <table class="table table-bordered table-hover">
                 @forelse($techpoints as $techpoint)
-                <tr>
+                <tr style="@if($techpoint->legal_address) background:lightblue @endif">
                     <td style="text-align: left; padding-left: 20px; padding-right: 20px; vertical-align: middle;">
                         {{$techpoint->title}}
                         <span style="display:block; font-size: 13px; color: #999;">
