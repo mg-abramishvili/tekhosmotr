@@ -60,12 +60,10 @@
                         <div class="col-12 col-md-5">
                             <div class="techpoint-detail-item">
                                 <div class="techpoint-detail-item-label">
-                                    Город
+                                    Адрес
                                 </div>
                                 <div class="techpoint-detail-item-value">
-                                    @foreach($techpoint->cities as $city)
-                                        {{ $city->city }}
-                                    @endforeach
+                                    @foreach($techpoint->cities as $city){{ $city->city }}@endforeach{{''}}, {{ $techpoint->address }}
                                 </div>
                             </div>
                         </div>
@@ -73,10 +71,10 @@
                         <div class="col-12 col-md-7">
                             <div class="techpoint-detail-item">
                                 <div class="techpoint-detail-item-label">
-                                    Адрес
+                                    Юр.адрес
                                 </div>
                                 <div class="techpoint-detail-item-value">
-                                    {{ $techpoint->address }}
+                                    {{ $techpoint->legal_address }}
                                 </div>
                             </div>
                         </div>
