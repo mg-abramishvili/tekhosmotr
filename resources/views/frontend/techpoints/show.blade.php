@@ -57,7 +57,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-5">
+                        <div class="col-12 col-md-6">
                             <div class="techpoint-detail-item">
                                 <div class="techpoint-detail-item-label">
                                     Адрес
@@ -68,7 +68,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-7">
+                        <div class="col-12 col-md-6">
                             <div class="techpoint-detail-item">
                                 <div class="techpoint-detail-item-label">
                                     Юр.адрес
