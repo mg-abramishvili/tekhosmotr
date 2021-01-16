@@ -25,7 +25,7 @@ class FrontTechpointController extends Controller
     public function show($id)
     {
         $city = '';
-        $goroda = City::all();
+        $goroda = City::orderBy('sort', 'ASC')->get();
         $cats = Cat::all();
         $techpoint = Techpoint::find($id);
         return view('frontend.techpoints.show', compact('techpoint', 'cats', 'goroda', 'city'));

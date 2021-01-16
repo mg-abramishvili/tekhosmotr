@@ -17,7 +17,7 @@ class TechpointController extends Controller
 
     public function create()
     {
-        $cities = City::all();
+        $cities = City::orderBy('sort', 'ASC')->get();
         $cats = Cat::all();
         return view('backend.techpoints.create', compact('cities', 'cats'));
     }
@@ -25,7 +25,7 @@ class TechpointController extends Controller
     public function edit($id)
     {
         $techpoint = Techpoint::find($id);
-        $cities = City::all();
+        $cities = City::orderBy('sort', 'ASC')->get();
         $cats = Cat::all();
         return view('backend.techpoints.edit', compact('techpoint', 'cities', 'cats'));
     }
