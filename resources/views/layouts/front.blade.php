@@ -54,11 +54,12 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="nav navbar-nav">
+                                <li class="nav-item"><a href="/p/novosti" class="nav-link"><span>Новости</span></a></li>
                                 <li class="nav-item"><a href="/p/akkreditaciya/" class="nav-link"><span>Аккредитация</span></a></li>
                                 <li class="nav-item"><a href="/p/zakonodatelstvo" class="nav-link"><span>Законодательство</span></a></li>
-                                <li class="nav-item"><a href="/p/metroligicheskoe-soprovozhdenie" class="nav-link"><span>Метрологическое сопрвождение</span></a></li>
+                                <li class="nav-item"><a href="/p/metroligicheskoe-soprovozhdenie" class="nav-link"><span>Поверка</span></a></li>
+                                <li class="nav-item"><a href="/p/ocenka" class="nav-link"><span>Оценка и экспертиза</span></a></li>
                                 <li class="nav-item"><a href="/p/oborudovanie-dlya-to" class="nav-link"><span>Оборудование для ТО</span></a></li>
-                                <li class="nav-item"><a href="/p/novosti" class="nav-link"><span>Новости</span></a></li>
                                 <li class="nav-item"><a href="/p/kontakty" class="nav-link"><span>Контакты</span></a></li>
                             </ul>
                         </div>
