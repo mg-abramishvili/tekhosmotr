@@ -9,6 +9,7 @@ use App\Models\Lead;
 use App\Mail\NewLead;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use DB;
 
 class FrontTechpointController extends Controller
 {
