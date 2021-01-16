@@ -60,7 +60,7 @@
                         <div class="col-12 col-md-6">
                             <div class="techpoint-detail-item">
                                 <div class="techpoint-detail-item-label">
-                                    Адрес
+                                    Адрес ПТО
                                 </div>
                                 <div class="techpoint-detail-item-value pr-2">
                                     @foreach($techpoint->cities as $city){{ $city->city }}@endforeach{{''}}, {{ $techpoint->address }}
