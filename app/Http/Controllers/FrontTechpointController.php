@@ -14,7 +14,7 @@ class FrontTechpointController extends Controller
 {
     public function index($city, Request $request)
     {
-        $goroda = City::orderBy('sort')->get();
+        $goroda = City::orderBy('sort', 'ASC')->get();
         $techpoints = Techpoint::whereHas('cities', function ($query) use($city) {
             return $query->where('city_code', '=', $city);
         })
