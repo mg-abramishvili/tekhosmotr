@@ -9,13 +9,12 @@ use App\Models\Lead;
 use App\Mail\NewLead;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\DB;
 
 class FrontTechpointController extends Controller
 {
     public function index($city, Request $request)
     {
-        $goroda = DB::table('cities')->orderBy('LENGTH(sort)', 'ASC')->orderBy('sort', 'ASC')->get();
+        $goroda = City::orderBy('sort', 'ASC')->get();
         $techpoints = Techpoint::whereHas('cities', function ($query) use($city) {
             return $query->where('city_code', '=', $city);
         })
