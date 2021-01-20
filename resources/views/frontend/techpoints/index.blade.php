@@ -91,7 +91,7 @@
                 @else
                 center: [54.753185705515016,55.98859607958987],
                 @endif
-                zoom: 12
+                zoom: 11
             }, {
                 searchControlProvider: 'yandex#search'
             }),
