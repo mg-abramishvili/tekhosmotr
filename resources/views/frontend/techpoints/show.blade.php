@@ -448,9 +448,9 @@
                     setTimeout(function() {
                         $('.flash-success').hide()
                     }, 3000);
-                    $('#lead_submit').attr('disabled', true);
+                    $('#lead_submit').hide();
                     setTimeout(function() {
-                        $('#lead_submit').removeAttr("disabled");
+                        $('#lead_submit').show();
                     }, 3000);
                 },
 

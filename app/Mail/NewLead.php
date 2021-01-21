@@ -25,7 +25,8 @@ class NewLead extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.lead')
+        return $this->subject('Новая заявка с БашТехОсмотр.РФ')
+            ->markdown('emails.lead')
             ->with([
             'station' => $this->lead->station,
             'date' => $this->lead->date,
