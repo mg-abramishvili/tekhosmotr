@@ -34,4 +34,4 @@ Route::get('/city/{city}', 'App\Http\Controllers\FrontTechpointController@index'
 Route::get('/techpoint/{id}', 'App\Http\Controllers\FrontTechpointController@show')->name('techpointpage');
 
 // LEADS
-Route::post('/email', 'App\Http\Controllers\FrontTechpointController@lead');
+Route::post('/email/{id}', 'App\Http\Controllers\FrontTechpointController@lead');

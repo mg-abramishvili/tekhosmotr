@@ -31,7 +31,7 @@ class FrontTechpointController extends Controller
         return view('frontend.techpoints.show', compact('techpoint', 'cats', 'goroda', 'city'));
     }
 
-    public function lead(Request $request) {
+    public function lead($id, Request $request) {
 
         $rules = [
             'station' => 'required',
@@ -67,8 +67,9 @@ class FrontTechpointController extends Controller
         $leads->save();
 
         $lead = Lead::find($leads->id);
+        $techpoint = Techpoint::find($id);
 
-        Mail::to($data['station_email'])->send(new NewLead($lead));
+        Mail::to($techpoint->email)->send(new NewLead($lead));
         
         return redirect()->back();
     }

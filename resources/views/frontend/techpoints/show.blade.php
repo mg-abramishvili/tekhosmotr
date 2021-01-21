@@ -104,16 +104,12 @@
                 </div>
                 <div class="modal-body">
                     <h4 class="text-center mb-4">Запись на техосмотр в <br>{{ $techpoint->title }}</h4>
-                    <form action="/email" method="post" id="lead_form" enctype="multipart/form-data">@csrf
+                    <form action="/email/{{ $techpoint->id }}" method="post" id="lead_form" enctype="multipart/form-data">@csrf
                         
                         <div class="flash-success">
                             <div class="alert alert-success" role="alert">
                                 Заявка успешно отправлена!
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="hidden" name="station_email" value="{{ $techpoint->email }}">
                         </div>
 
                         <div class="form-group">
