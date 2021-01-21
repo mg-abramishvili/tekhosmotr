@@ -430,7 +430,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: '/email',
+                url: '/email/{{ $techpoint->id }}',
                 data: {
                     _token: CSRF_TOKEN,
                     station: station,
