@@ -113,6 +113,10 @@
                         </div>
                     
                         <div class="form-group">
+                            <input type="hidden" name="station_id" value="{{ $techpoint->id }}">
+                        </div>
+
+                        <div class="form-group">
                             <input type="hidden" name="station" value="{{ $techpoint->title }}">
                             <span class="station_error text-danger"></span>
                         </div>
