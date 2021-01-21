@@ -412,6 +412,7 @@
 
     <script>
         $('.flash-success').hide();
+        $('.spinner-border').hide();
         function storeData() {
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             var station = $('input[name=station]').val();
