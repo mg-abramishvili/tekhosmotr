@@ -451,10 +451,10 @@
                     $('.spinner-border').show();
                     setTimeout(function() {
                         $('#lead_submit').show();
-                    }, 3000);
+                    }, 2000);
                     setTimeout(function() {
                         $('.spinner-border').hide();
-                    }, 3000);
+                    }, 2000);
                 },
 
                 success: function (data) {
