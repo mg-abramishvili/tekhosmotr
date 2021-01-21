@@ -344,6 +344,9 @@
                         </div>
                         <div class="col-12 col-md-12 text-center">
                         <button type="button" class="btn btn-lg btn-primary" id="lead_submit" onclick="storeData();">Отправить</button>
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="sr-only">Отправка...</span>
+                        </div>
                         <p class="text-secondary mt-2"><small>Нажимая кнопку "Отправить", вы соглашаетесь с обработкой данных.</small></p>
                         </div>
 
@@ -442,15 +445,22 @@
                     phone: phone,
                 },
 
+                beforeSend: function () {
+                    $('#lead_submit').hide();
+                    $('.spinner-border').show();
+                    setTimeout(function() {
+                        $('#lead_submit').show();
+                    }, 3000);
+                    setTimeout(function() {
+                        $('.spinner-border').hide();
+                    }, 3000);
+                },
+
                 success: function (data) {
                     $('.flash-success').show();
                     $('#lead_form').trigger("reset");
                     setTimeout(function() {
                         $('.flash-success').hide()
-                    }, 3000);
-                    $('#lead_submit').hide();
-                    setTimeout(function() {
-                        $('#lead_submit').show();
                     }, 3000);
                 },
 
