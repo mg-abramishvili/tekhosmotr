@@ -111,9 +111,9 @@
                                 Заявка успешно отправлена!
                             </div>
                         </div>
-                    
+
                         <div class="form-group">
-                            <input type="hidden" name="station_id" value="{{ $techpoint->id }}">
+                            <input type="hidden" name="station_email" value="{{ $techpoint->email }}">
                         </div>
 
                         <div class="form-group">

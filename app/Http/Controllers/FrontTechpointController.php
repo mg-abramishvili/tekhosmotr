@@ -67,9 +67,8 @@ class FrontTechpointController extends Controller
         $leads->save();
 
         $lead = Lead::find($leads->id);
-        $techpoint = Techpoint::find($data['station_id']);
 
-        Mail::to($techpoint->email)->send(new NewLead($lead));
+        Mail::to($request->station_email)->send(new NewLead($lead));
         
         return redirect()->back();
     }
