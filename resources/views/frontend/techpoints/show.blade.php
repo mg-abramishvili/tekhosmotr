@@ -121,157 +121,157 @@
 
                             <div class="date-pick-slider">
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d1" name="date" value="{{ \Carbon\Carbon::now()->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d1" name="n_date" value="{{ \Carbon\Carbon::now()->locale('ru')->isoFormat('DD MMM (dd)') }}">
                                     <label for="d1">{{ \Carbon\Carbon::now()->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d2" name="date" value="{{ \Carbon\Carbon::now()->addDay(1)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d2" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(1) }}">
                                     <label for="d2">{{ \Carbon\Carbon::now()->addDay(1)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d3" name="date" value="{{ \Carbon\Carbon::now()->addDay(2)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d3" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(2) }}">
                                     <label for="d3">{{ \Carbon\Carbon::now()->addDay(2)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d4" name="date" value="{{ \Carbon\Carbon::now()->addDay(3)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d4" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(3) }}">
                                     <label for="d4">{{ \Carbon\Carbon::now()->addDay(3)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d5" name="date" value="{{ \Carbon\Carbon::now()->addDay(4)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d5" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(4) }}">
                                     <label for="d5">{{ \Carbon\Carbon::now()->addDay(4)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d6" name="date" value="{{ \Carbon\Carbon::now()->addDay(5)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d6" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(5) }}">
                                     <label for="d6">{{ \Carbon\Carbon::now()->addDay(5)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d7" name="date" value="{{ \Carbon\Carbon::now()->addDay(6)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d7" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(6) }}">
                                     <label for="d7">{{ \Carbon\Carbon::now()->addDay(6)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d8" name="date" value="{{ \Carbon\Carbon::now()->addDay(7)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d8" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(7) }}">
                                     <label for="d8">{{ \Carbon\Carbon::now()->addDay(7)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d9" name="date" value="{{ \Carbon\Carbon::now()->addDay(8)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d9" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(8) }}">
                                     <label for="d9">{{ \Carbon\Carbon::now()->addDay(8)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d10" name="date" value="{{ \Carbon\Carbon::now()->addDay(9)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d10" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(9) }}">
                                     <label for="d10">{{ \Carbon\Carbon::now()->addDay(9)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d11" name="date" value="{{ \Carbon\Carbon::now()->addDay(10)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d11" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(10) }}">
                                     <label for="d11">{{ \Carbon\Carbon::now()->addDay(10)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d12" name="date" value="{{ \Carbon\Carbon::now()->addDay(11)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d12" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(11) }}">
                                     <label for="d12">{{ \Carbon\Carbon::now()->addDay(11)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d13" name="date" value="{{ \Carbon\Carbon::now()->addDay(12)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d13" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(12) }}">
                                     <label for="d13">{{ \Carbon\Carbon::now()->addDay(12)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d14" name="date" value="{{ \Carbon\Carbon::now()->addDay(13)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d14" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(13) }}">
                                     <label for="d14">{{ \Carbon\Carbon::now()->addDay(13)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d15" name="date" value="{{ \Carbon\Carbon::now()->addDay(14)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d15" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(14) }}">
                                     <label for="d15">{{ \Carbon\Carbon::now()->addDay(14)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d16" name="date" value="{{ \Carbon\Carbon::now()->addDay(15)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d16" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(15) }}">
                                     <label for="d16">{{ \Carbon\Carbon::now()->addDay(15)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d17" name="date" value="{{ \Carbon\Carbon::now()->addDay(16)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d17" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(16) }}">
                                     <label for="d17">{{ \Carbon\Carbon::now()->addDay(16)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d18" name="date" value="{{ \Carbon\Carbon::now()->addDay(17)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d18" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(17) }}">
                                     <label for="d18">{{ \Carbon\Carbon::now()->addDay(17)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d19" name="date" value="{{ \Carbon\Carbon::now()->addDay(18)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d19" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(18) }}">
                                     <label for="d19">{{ \Carbon\Carbon::now()->addDay(18)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d20" name="date" value="{{ \Carbon\Carbon::now()->addDay(19)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d20" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(19) }}">
                                     <label for="d20">{{ \Carbon\Carbon::now()->addDay(19)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d21" name="date" value="{{ \Carbon\Carbon::now()->addDay(20)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d21" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(20) }}">
                                     <label for="d21">{{ \Carbon\Carbon::now()->addDay(20)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d22" name="date" value="{{ \Carbon\Carbon::now()->addDay(21)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d22" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(21) }}">
                                     <label for="d22">{{ \Carbon\Carbon::now()->addDay(21)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d23" name="date" value="{{ \Carbon\Carbon::now()->addDay(22)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d23" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(22) }}">
                                     <label for="d23">{{ \Carbon\Carbon::now()->addDay(22)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d24" name="date" value="{{ \Carbon\Carbon::now()->addDay(23)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d24" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(23) }}">
                                     <label for="d24">{{ \Carbon\Carbon::now()->addDay(23)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d25" name="date" value="{{ \Carbon\Carbon::now()->addDay(24)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d25" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(24) }}">
                                     <label for="d25">{{ \Carbon\Carbon::now()->addDay(24)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d26" name="date" value="{{ \Carbon\Carbon::now()->addDay(25)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d26" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(25) }}">
                                     <label for="d26">{{ \Carbon\Carbon::now()->addDay(25)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d27" name="date" value="{{ \Carbon\Carbon::now()->addDay(26)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d27" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(26) }}">
                                     <label for="d27">{{ \Carbon\Carbon::now()->addDay(26)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d28" name="date" value="{{ \Carbon\Carbon::now()->addDay(27)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d28" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(27) }}">
                                     <label for="d28">{{ \Carbon\Carbon::now()->addDay(27)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d29" name="date" value="{{ \Carbon\Carbon::now()->addDay(28)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d29" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(28) }}">
                                     <label for="d29">{{ \Carbon\Carbon::now()->addDay(28)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d30" name="date" value="{{ \Carbon\Carbon::now()->addDay(29)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d30" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(29) }}">
                                     <label for="d30">{{ \Carbon\Carbon::now()->addDay(29)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
 
                                 <div class="date-pick-item">
-                                    <input type="radio" id="d31" name="date" value="{{ \Carbon\Carbon::now()->addDay(30)->locale('ru')->isoFormat('DD MMM (dd)') }}">
+                                    <input type="radio" id="d31" name="n_date" value="{{ \Carbon\Carbon::now()->addDay(30) }}">
                                     <label for="d31">{{ \Carbon\Carbon::now()->addDay(30)->locale('ru')->isoFormat('DD MMM (dd)') }}</label>
                                 </div>
                             </div>
@@ -416,7 +416,7 @@
         function storeData() {
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             var station = $('input[name=station]').val();
-            var date = $('input[name=date]:checked').val();
+            var n_date = $('input[name=n_date]:checked').val();
             var time = $('select[name=time]').val();
             var number = $('input[name=number]').val();
             var category = $('select[name=category]').val();
@@ -438,7 +438,7 @@
                 data: {
                     _token: CSRF_TOKEN,
                     station: station,
-                    date: date,
+                    n_date: n_date,
                     time: time,
                     number: number,
                     category: category,

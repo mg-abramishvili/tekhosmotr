@@ -116,8 +116,8 @@
                                     <span>{{ \Carbon\Carbon::parse($day)->locale('ru')->isoFormat('D') }}</span>
 
                                     @foreach ($leads as $lead)
-                                        @if(\Carbon\Carbon::parse($lead->created_at)->locale('en')->isoFormat('DD.MM.YYYY') == \Carbon\Carbon::parse($day)->locale('en')->isoFormat('DD.MM.YYYY'))
-                                            <p>{{ \Carbon\Carbon::parse($lead->created_at)->locale('ru')->isoFormat('H:mm') }}</p>
+                                        @if(\Carbon\Carbon::parse($lead->n_date)->locale('en')->isoFormat('DD.MM.YYYY') == \Carbon\Carbon::parse($day)->locale('en')->isoFormat('DD.MM.YYYY'))
+                                            <p>{{ \Carbon\Carbon::parse($lead->n_date)->locale('ru')->isoFormat('H:mm') }}</p>
                                         @endif
                                     @endforeach
                                 </li>

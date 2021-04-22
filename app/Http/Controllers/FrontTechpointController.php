@@ -35,7 +35,7 @@ class FrontTechpointController extends Controller
 
         $rules = [
             'station' => 'required',
-            'date' => 'required',
+            'n_date' => 'required',
             'time' => 'required',
             'number' => 'required',
             'category' => 'required',
@@ -45,7 +45,7 @@ class FrontTechpointController extends Controller
     
         $customMessages = [
             'station.required' => 'Укажите станцию',
-            'date.required' => 'Укажите дату',
+            'n_date.required' => 'Укажите дату',
             'time.required' => 'Укажите время',
             'number.required' => 'Укажите госномер',
             'category.required' => 'Укажите категорию',
@@ -58,7 +58,7 @@ class FrontTechpointController extends Controller
         $data = request()->all();
         $leads = new Lead();
         $leads->station = $data['station'];
-        $leads->date = $data['date'];
+        $leads->n_date = $data['n_date'];
         $leads->time = $data['time'];
         $leads->number = $data['number'];
         $leads->category = $data['category'];
