@@ -25,6 +25,7 @@ Route::resource('/backend/pages', PageController::class)->middleware('auth');
 
 // LEADS (BACKEND)
 Route::resource('/backend/leads', LeadController::class)->middleware('auth');
+Route::get('/backend/leads-period/{month}', 'App\Http\Controllers\LeadController@index_period')->middleware('auth');
 
 // PAGES (FRONT)
 Route::get('/p/{slug}', 'App\Http\Controllers\FrontPageController@show');
