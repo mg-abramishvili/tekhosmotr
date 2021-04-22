@@ -16,7 +16,12 @@ class LeadController extends Controller
 
     public function index_period($month, Request $request)
     {
-        $month = $month;
+        if($month != '') {
+            $month = $month;
+        } else {
+            $month = Carbon::now()->locale('en')->isoFormat('YYYY-MM');
+        }
+
         $start = Carbon::parse($month)->startOfMonth();
         $end = Carbon::parse($month)->endOfMonth();
         
