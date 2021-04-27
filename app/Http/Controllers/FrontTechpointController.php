@@ -8,6 +8,7 @@ use App\Models\Cat;
 use App\Models\Lead;
 use App\Mail\NewLead;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class FrontTechpointController extends Controller
@@ -28,7 +29,9 @@ class FrontTechpointController extends Controller
         $goroda = City::orderBy('sort', 'ASC')->get();
         $cats = Cat::all();
         $techpoint = Techpoint::find($id);
-        return view('frontend.techpoints.show', compact('techpoint', 'cats', 'goroda', 'city'));
+        $leads = Lead::all();
+
+        return view('frontend.techpoints.show', compact('techpoint', 'cats', 'goroda', 'city', 'leads'));
     }
 
     public function lead($id, Request $request) {
@@ -59,11 +62,14 @@ class FrontTechpointController extends Controller
         $leads = new Lead();
         $leads->station = $data['station'];
         $leads->n_date = $data['n_date'];
-        $leads->time = $data['time'];
+
+        $leads->time = json_encode($data['time']);
+
         $leads->number = $data['number'];
         $leads->category = $data['category'];
         $leads->name = $data['name'];
         $leads->phone = $data['phone'];
+        $leads->duration = $data['duration'];
         $leads->save();
 
         $lead = Lead::find($leads->id);

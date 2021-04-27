@@ -177,7 +177,7 @@
                                         @endif
 
                                         @if(\Carbon\Carbon::parse($lead->n_date)->locale('en')->isoFormat('DD.MM.YYYY') == \Carbon\Carbon::parse($day)->locale('en')->isoFormat('DD.MM.YYYY'))
-                                            <!--<p>{{ \Carbon\Carbon::parse($lead->time)->locale('ru')->isoFormat('H:mm') }}</p>-->
+                                            <!--<p></p>-->
                                         @endif
                                     @endforeach
                                 </li>
@@ -191,7 +191,9 @@
                                     <li class="d-none lead_lead lead_{{ \Carbon\Carbon::parse($lead->n_date)->locale('ru')->isoFormat('YYYY_MM_DD') }}">
                                         <div class="row">
                                             <div class="col-6">
-                                                <strong>{{ \Carbon\Carbon::parse($lead->time)->locale('ru')->isoFormat('H:mm') }}</strong>
+                                                @foreach(json_decode($lead->time) as $tm)
+                                                    <strong>{{ \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm') }}</strong>
+                                                @endforeach
                                             </div>
                                             <div class="col-6 text-right">
                                                 <small>{{ \Carbon\Carbon::parse($lead->n_date)->locale('ru')->isoFormat('DD.MM.YYYY') }}</small>

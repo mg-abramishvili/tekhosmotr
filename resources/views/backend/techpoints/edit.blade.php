@@ -197,6 +197,29 @@
                 @endif
             </div>
 
+            <hr>
+
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label class="font-weight-bold">Время работы</label>
+                        <div class="row">
+                            <div class="col-6">
+                                <input class="form-control" name="working_hours_start" value="{{ $techpoint->working_hours_start }}"/>
+                            </div>
+                            <div class="col-6">
+                                <input class="form-control" name="working_hours_end" value="{{ $techpoint->working_hours_end }}"/>
+                            </div>
+                        </div>
+                        @if ($errors->has('working_hours'))
+                            <div class="alert alert-danger">
+                                Укажите Время работы
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
             <button type="submit" class="btn btn-lg btn-success">Сохранить</button>
         </form>
 

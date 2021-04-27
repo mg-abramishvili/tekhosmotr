@@ -286,18 +286,17 @@
                             <div class="form-group">
                                 <label>Время</label>
 
-                                <select name="time" class="form-control">
-                                    <option disabled selected value>Выберите время</option>
-                                    <option value="9:00">9:00</option>
-                                    <option value="10:00">10:00</option>
-                                    <option value="11:00">11:00</option>
-                                    <option value="12:00">12:00</option>
-                                    <option value="13:00">13:00</option>
-                                    <option value="14:00">14:00</option>
-                                    <option value="15:00">15:00</option>
-                                    <option value="16:00">16:00</option>
-                                    <option value="17:00">17:00</option>
-                                    <option value="18:00">18:00</option>
+                                <style>
+                                    select option:disabled {
+                                        color: rgb(194, 194, 194);
+                                    }
+                                </style>
+
+                                <select id="time" name="time[]" class="form-control" multiple>
+                                    <option @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->isoFormat('H:mm') }}">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->isoFormat('H:mm') }}</option>
+                                    <option @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H:mm') }}">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(30)->locale('ru')->isoFormat('H:mm') }}</option>
+                                    <option @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(60)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(60)->isoFormat('H:mm') }}">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(60)->locale('ru')->isoFormat('H:mm') }}</option>
+                                    <option @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(90)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(90)->isoFormat('H:mm') }}">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(90)->locale('ru')->isoFormat('H:mm') }}</option>
                                 </select>
                                 <span class="time_error text-danger"></span>
                             </div>
@@ -342,6 +341,15 @@
                                 <span class="phone_error text-danger"></span>
                             </div>
                         </div>
+
+                        <div class="col-12 col-md-4">
+                            <div class="form-group">
+                                <label>Продолжительность</label>
+                                <input type="text" class="form-control" name="duration">
+                                <span class="duration_error text-danger"></span>
+                            </div>
+                        </div>
+
                         <div class="col-12 col-md-12 text-center">
                         <button type="button" class="btn btn-lg btn-primary" id="lead_submit" onclick="storeData();">Отправить</button>
                         <div class="spinner-border text-primary" role="status">
@@ -417,11 +425,12 @@
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             var station = $('input[name=station]').val();
             var n_date = $('input[name=n_date]:checked').val();
-            var time = $('select[name=time]').val();
+            var time = $('#time').val();
             var number = $('input[name=number]').val();
             var category = $('select[name=category]').val();
             var name = $('input[name=name]').val();
             var phone = $('input[name=phone]').val();
+            var duration = $('input[name=duration]').val();
 
             $('.flash-success').hide();
             $('.station_error').hide();
@@ -431,6 +440,7 @@
             $('.category_error').hide();
             $('.name_error').hide();
             $('.phone_error').hide();
+            $('.duration_error').hide();
 
             $.ajax({
                 type: 'POST',
@@ -444,6 +454,7 @@
                     category: category,
                     name: name,
                     phone: phone,
+                    duration: duration,
                 },
 
                 beforeSend: function () {
