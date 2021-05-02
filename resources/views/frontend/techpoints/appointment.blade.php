@@ -18,7 +18,7 @@
 
             <div class="form-group">
 
-                <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" class="custom-select">
+                <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" name="n_date" class="custom-select">
                     <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>{{ \Carbon\Carbon::now()->locale('ru')->isoFormat('DD MMM (dd)') }}</option>
                     <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(1)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(1)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>{{ \Carbon\Carbon::now()->addDay(1)->locale('ru')->isoFormat('DD MMM (dd)') }}</option>
                 </select>
@@ -130,10 +130,11 @@
         function storeData() {
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             var station = $('input[name=station]').val();
-            var n_date = $('input[name=n_date]:checked').val();
+            var station_id = '{{ $techpoint->id }}';
+            var n_date = $('select[name=n_date] option:selected').val().substr(-10);
             var time = $('#time').val();
             var number = $('input[name=number]').val();
-            var category = $('select[name=category]').val();
+            var category = $('select[name=category] option:selected').text();
             var name = $('input[name=name]').val();
             var phone = $('input[name=phone]').val();
             var duration = $('input[name=duration]').val();
@@ -154,6 +155,7 @@
                 data: {
                     _token: CSRF_TOKEN,
                     station: station,
+                    station_id: station_id,
                     n_date: n_date,
                     time: time,
                     number: number,

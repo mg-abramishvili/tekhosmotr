@@ -74,7 +74,7 @@ class FrontTechpointController extends Controller
         $data = request()->all();
         $leads = new Lead();
         $leads->station = $data['station'];
-        $leads->n_date = $data['n_date'];
+        $leads->n_date = Carbon::parse($data['n_date']);
 
         $leads->time = json_encode($data['time']);
 
@@ -84,11 +84,12 @@ class FrontTechpointController extends Controller
         $leads->phone = $data['phone'];
         $leads->duration = $data['duration'];
         $leads->save();
+        $leads->techpoints()->attach(Techpoint::find($request->station_id));
 
         $lead = Lead::find($leads->id);
         $techpoint = Techpoint::find($id);
 
-        Mail::to($techpoint->email)->send(new NewLead($lead));
+        //Mail::to($techpoint->email)->send(new NewLead($lead));
         
         return redirect()->back();
     }
