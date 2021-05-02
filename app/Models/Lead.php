@@ -12,4 +12,9 @@ class Lead extends Model
     protected $fillable = [
         'station', 'date', 'time', 'name', 'phone', 'number', 'category'
     ];
+
+    public function techpoints()
+    {
+        return $this->belongsToMany('App\Models\Techpoint');
+    }
 }

@@ -33,6 +33,7 @@ Route::get('/p/{slug}', 'App\Http\Controllers\FrontPageController@show');
 // TECHPOINTS (FRONT)
 Route::get('/city/{city}', 'App\Http\Controllers\FrontTechpointController@index')->name('indexpage');
 Route::get('/techpoint/{id}', 'App\Http\Controllers\FrontTechpointController@show')->name('techpointpage');
+Route::get('/appointment/{id}/{cat}/{date}', 'App\Http\Controllers\FrontTechpointController@appointment')->name('techpointpage_appoinment');
 
 // LEADS
 Route::post('/email/{id}', 'App\Http\Controllers\FrontTechpointController@lead');

@@ -22,4 +22,9 @@ class Techpoint extends Model
     {
         return $this->belongsToMany('App\Models\Cat');
     }
+
+    public function leads()
+    {
+        return $this->belongsToMany('App\Models\Lead');
+    }
 }

@@ -23,15 +23,28 @@ class FrontTechpointController extends Controller
         return view('frontend.techpoints.index', compact('techpoints', 'goroda', 'city'));
     }
 
-    public function show($id)
-    {
+    public function show($id) {
         $city = '';
         $goroda = City::orderBy('sort', 'ASC')->get();
         $cats = Cat::all();
         $techpoint = Techpoint::find($id);
-        $leads = Lead::all();
+        
+        return view('frontend.techpoints.show', compact('techpoint', 'cats', 'goroda', 'city'));
+    }
 
-        return view('frontend.techpoints.show', compact('techpoint', 'cats', 'goroda', 'city', 'leads'));
+    public function appointment($id, $cat, $date) {
+        $city = '';
+        $goroda = City::orderBy('sort', 'ASC')->get();
+        $cats = Cat::all();
+        $techpoint = Techpoint::find($id);
+        $leads = Lead::whereHas('techpoints', function($q) use($id) {
+            $q->where('techpoint_id', '=', $id);
+        })->where('n_date', Carbon::parse($date)->isoFormat('YYYY-MM-DD'))->get();
+        
+        $cat = $cat;
+        $date = $date;
+
+        return view('frontend.techpoints.appointment', compact('techpoint', 'cats', 'goroda', 'city', 'leads', 'cat', 'date'));
     }
 
     public function lead($id, Request $request) {
