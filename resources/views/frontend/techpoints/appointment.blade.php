@@ -113,8 +113,12 @@
     <script>
         $(function() {
             $('#time').change(function() {
-                $('#time option:selected').next().prop('selected', true);
-            }); 
+                if($('#time option:selected').next().is(':enabled')) {
+                    $('#time option:selected').next().prop('selected', true);
+                } else {
+                    alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                }
+            });
         });
     </script>
 
