@@ -17,7 +17,7 @@
             </div>
 
             <div class="row">
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-6 offset-lg-3" id="step1">
 
                         <div class="form-group">
                             <label>Категория ТС</label>
@@ -738,7 +738,7 @@
                         </div>
 
                 </div>
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-6 offset-lg-3 d-none" id="step2">
 
                     <div class="form-group">
                         <label>Госномер</label>
@@ -768,7 +768,8 @@
             </div>
 
             <div class="col-12 col-md-12 text-center">
-                <button type="button" class="btn btn-lg btn-primary" id="lead_submit" onclick="storeData();">Отправить</button>
+                <button id="next_step" class="btn btn-lg btn-primary" disabled>Далее</button>
+                <button type="button" class="btn btn-lg btn-primary d-none" id="lead_submit" onclick="storeData();">Отправить</button>
                 <div class="spinner-border text-primary" role="status">
                     <span class="sr-only">Отправка...</span>
                 </div>
@@ -782,14 +783,24 @@
 
 @section('scripts')
     <script>
-        $(function() {
-            $('#time').change(function() {
-                if($('#time option:selected').next().is(':enabled')) {
-                    $('#time option:selected').next().prop('selected', true);
+        $(document).ready(function() {
+            setInterval(function(){ 
+                if (!$("#time option:selected").length) {
+                    $('#next_step').prop('disabled', true);
                 } else {
-                    alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                    $('#next_step').prop('disabled', false);
                 }
-            });
+            }, 1000);
+        });
+    </script>
+
+    <script>
+        $('#next_step').click(function(event) {
+            event.preventDefault();
+            $('#step1').addClass('d-none');
+            $('#next_step').addClass('d-none');
+            $('#step2').removeClass('d-none');
+            $('#lead_submit').removeClass('d-none');
         });
     </script>
 
