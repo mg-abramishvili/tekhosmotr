@@ -60,6 +60,9 @@ class TechpointController extends Controller
         $techpoints->ogrn = $data['ogrn'];
         $techpoints->number = $data['number'];
         $techpoints->att_number = $data['att_number'];
+        $techpoints->working_hours_start = $data['working_hours_start'];
+        $techpoints->working_hours_end = $data['working_hours_end'];
+        $techpoints->bus_day = json_encode($data['bus_day']);
         $techpoints->save();
         $techpoints->cities()->attach($request->cities, ['techpoint_id' => $techpoints->id]);
         $techpoints->cats()->attach($request->cats, ['techpoint_id' => $techpoints->id]);
@@ -91,6 +94,7 @@ class TechpointController extends Controller
         $techpoints->att_number = $data['att_number'];
         $techpoints->working_hours_start = $data['working_hours_start'];
         $techpoints->working_hours_end = $data['working_hours_end'];
+        $techpoints->bus_day = json_encode($data['bus_day']);
         $techpoints->save();
         $techpoints->cities()->detach();
         $techpoints->cities()->attach($request->cities, ['techpoint_id' => $techpoints->id]);

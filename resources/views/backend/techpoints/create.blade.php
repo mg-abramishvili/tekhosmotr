@@ -178,6 +178,43 @@
                     </div>
                 </div>
 
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label class="font-weight-bold">Время работы</label>
+                        <div class="row">
+                            <div class="col-6">
+                                <input class="form-control" name="working_hours_start"/>
+                            </div>
+                            <div class="col-6">
+                                <input class="form-control" name="working_hours_end"/>
+                            </div>
+                        </div>
+                        @if ($errors->has('working_hours'))
+                            <div class="alert alert-danger">
+                                Укажите Время работы
+                            </div>
+                        @endif
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="font-weight-bold">День приема автобусов</label>
+                <select name="bus_day[]" class="custom-select" multiple>
+                    <option value="Monday">Понедельник</option>
+                    <option value="Tuesday">Вторник</option>
+                    <option value="Wednesday">Среда</option>
+                    <option value="Thursday">Четверг</option>
+                    <option value="Friday">Пятница</option>
+                    <option value="Saturday">Суббота</option>
+                    <option value="Sunday">Воскресенье</option>
+                </select>
+                @if ($errors->has('bus_day'))
+                    <div class="alert alert-danger">
+                        Укажите День приема автобусов
+                    </div>
+                @endif
             </div>
 
             <div class="form-group">

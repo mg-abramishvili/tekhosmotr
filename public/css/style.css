@@ -628,3 +628,18 @@ header .row {
 }
 
 /* MAP */
+
+.front-lead-form {
+    padding: 25px 50px;
+}
+
+.front-lead-form .row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.front-lead-form .col-12,
+.front-lead-form .col-lg-6 {
+    padding-right: 15px;
+    padding-left: 15px;
+}

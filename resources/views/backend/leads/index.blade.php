@@ -194,6 +194,8 @@
                                                 @foreach(json_decode($lead->time) as $tm)
                                                     <strong>{{ \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm') }}</strong>
                                                 @endforeach
+                                                <br>
+                                                <span style="font-size: 12px; color: #757575;">{{ $lead->station }}</span>
                                             </div>
                                             <div class="col-6 text-right">
                                                 <small>{{ \Carbon\Carbon::parse($lead->n_date)->locale('ru')->isoFormat('DD.MM.YYYY') }}</small>

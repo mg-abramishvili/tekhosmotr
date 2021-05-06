@@ -82,16 +82,21 @@ class FrontTechpointController extends Controller
         $leads->category = $data['category'];
         $leads->name = $data['name'];
         $leads->phone = $data['phone'];
-        $leads->duration = $data['duration'];
-        $leads->save();
-        $leads->techpoints()->attach(Techpoint::find($request->station_id));
-
-        $lead = Lead::find($leads->id);
-        $techpoint = Techpoint::find($id);
-
-        //Mail::to($techpoint->email)->send(new NewLead($lead));
         
-        return redirect()->back();
+        if (Lead::where('n_date', '=', $request->n_date)->where('time', '=', json_encode($request->time))->exists()) {
+            return 'занято';
+        } else {
+            $leads->save();
+            $leads->techpoints()->attach(Techpoint::find($request->station_id));
+    
+            $lead = Lead::find($leads->id);
+            $techpoint = Techpoint::find($id);
+    
+            //Mail::to($techpoint->email)->send(new NewLead($lead));
+            
+            return redirect()->back();
+        }
+        
     }
 
 }

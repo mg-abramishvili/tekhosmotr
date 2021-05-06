@@ -181,25 +181,6 @@
                     </div>
                 </div>
 
-            </div>
-
-            <div class="form-group">
-                <label class="font-weight-bold">Кнопка записи</label>
-                <select class="form-control" name="status">
-                        <option value="enabled" @if($techpoint->status == 'enabled') selected @endif>Вкл</option>
-                        <option value="disabled" @if($techpoint->status == 'disabled') selected @endif>Выкл</option>
-                </select>
-                @if ($errors->has('status'))
-                    <div class="alert alert-danger">
-                        <!--{{ $errors->first('status') }}-->
-                        Укажите статус
-                    </div>
-                @endif
-            </div>
-
-            <hr>
-
-            <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <label class="font-weight-bold">Время работы</label>
@@ -218,7 +199,42 @@
                         @endif
                     </div>
                 </div>
+
             </div>
+
+            <div class="form-group">
+                <label class="font-weight-bold">День приема автобусов</label>
+                <select name="bus_day[]" class="custom-select" multiple>
+                    <option value="Monday" @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Monday') selected @endif @endforeach>Понедельник</option>
+                    <option value="Tuesday" @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Tuesday') selected @endif @endforeach>Вторник</option>
+                    <option value="Wednesday" @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Wednesday') selected @endif @endforeach>Среда</option>
+                    <option value="Thursday" @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Thursday') selected @endif @endforeach>Четверг</option>
+                    <option value="Friday" @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Friday') selected @endif @endforeach>Пятница</option>
+                    <option value="Saturday" @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Saturday') selected @endif @endforeach>Суббота</option>
+                    <option value="Sunday" @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Sunday') selected @endif @endforeach>Воскресенье</option>
+                </select>
+                @if ($errors->has('bus_day'))
+                    <div class="alert alert-danger">
+                        Укажите День приема автобусов
+                    </div>
+                @endif
+            </div>
+
+            <div class="form-group">
+                <label class="font-weight-bold">Кнопка записи</label>
+                <select class="form-control" name="status">
+                        <option value="enabled" @if($techpoint->status == 'enabled') selected @endif>Вкл</option>
+                        <option value="disabled" @if($techpoint->status == 'disabled') selected @endif>Выкл</option>
+                </select>
+                @if ($errors->has('status'))
+                    <div class="alert alert-danger">
+                        <!--{{ $errors->first('status') }}-->
+                        Укажите статус
+                    </div>
+                @endif
+            </div>
+
+            <hr>
 
             <button type="submit" class="btn btn-lg btn-success">Сохранить</button>
         </form>
