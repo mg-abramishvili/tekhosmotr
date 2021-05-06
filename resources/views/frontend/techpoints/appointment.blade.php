@@ -156,11 +156,13 @@
                                         event.preventDefault();
                                         $('#time').val('');
                                         $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        @if($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
