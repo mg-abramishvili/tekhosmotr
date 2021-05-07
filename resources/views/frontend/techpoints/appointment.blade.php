@@ -3,6 +3,7 @@
 <div class="front-lead-form">
     <div class="container">
         <h4 class="text-center mb-4">Запись на техосмотр в <br>{{ $techpoint->title }}</h4>
+        @if($techpoint->working_hours_start && $techpoint->working_hours_end)
         <form action="/email/{{ $techpoint->id }}" method="post" id="lead_form" enctype="multipart/form-data">@csrf
             
             <div class="flash-success">
@@ -905,7 +906,7 @@
 
                             <br><br>
 
-                            <select id="time" name="time[]" class="form-control" multiple>
+                            <select id="time" name="time[]" class="form-control" multiple style="display:none;">
                                 <option @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->isoFormat('H:mm') }}">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->isoFormat('H:mm') }}</option>
                                 
                                 @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(30)->locale('ru')->isoFormat('Hmm') >= 0)
@@ -1067,6 +1068,9 @@
             </div>
 
         </form>
+        @else
+            <p class="text-center">К сожалению, записаться в эту станцию техосмотра в данный момент нельзя.</p>
+        @endif
     </div>
 </div>
 @endsection

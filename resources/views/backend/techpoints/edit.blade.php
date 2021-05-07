@@ -205,13 +205,13 @@
             <div class="form-group">
                 <label class="font-weight-bold">День приема автобусов</label>
                 <select name="bus_day[]" class="custom-select" multiple>
-                    <option value="Monday" @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Monday') selected @endif @endforeach>Понедельник</option>
-                    <option value="Tuesday" @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Tuesday') selected @endif @endforeach>Вторник</option>
-                    <option value="Wednesday" @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Wednesday') selected @endif @endforeach>Среда</option>
-                    <option value="Thursday" @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Thursday') selected @endif @endforeach>Четверг</option>
-                    <option value="Friday" @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Friday') selected @endif @endforeach>Пятница</option>
-                    <option value="Saturday" @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Saturday') selected @endif @endforeach>Суббота</option>
-                    <option value="Sunday" @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Sunday') selected @endif @endforeach>Воскресенье</option>
+                    <option value="Monday" @if($techpoint->bus_day) @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Monday') selected @endif @endforeach @endif>Понедельник</option>
+                    <option value="Tuesday" @if($techpoint->bus_day) @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Tuesday') selected @endif @endforeach @endif>Вторник</option>
+                    <option value="Wednesday" @if($techpoint->bus_day) @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Wednesday') selected @endif @endforeach @endif>Среда</option>
+                    <option value="Thursday" @if($techpoint->bus_day) @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Thursday') selected @endif @endforeach @endif>Четверг</option>
+                    <option value="Friday" @if($techpoint->bus_day) @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Friday') selected @endif @endforeach @endif>Пятница</option>
+                    <option value="Saturday" @if($techpoint->bus_day) @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Saturday') selected @endif @endforeach @endif>Суббота</option>
+                    <option value="Sunday" @if($techpoint->bus_day) @foreach(json_decode($techpoint->bus_day) as $bd) @if($bd == 'Sunday') selected @endif @endforeach @endif>Воскресенье</option>
                 </select>
                 @if ($errors->has('bus_day'))
                     <div class="alert alert-danger">
