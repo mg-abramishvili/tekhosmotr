@@ -192,7 +192,9 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 @foreach(json_decode($lead->time) as $tm)
+                                                    @if($loop->first)
                                                     <strong>{{ \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm') }}</strong>
+                                                    @endif
                                                 @endforeach
                                                 <br>
                                                 <span style="font-size: 12px; color: #757575;">{{ $lead->station }}</span>
@@ -210,7 +212,7 @@
                                                 <p class="mt-0 mb-2"><i>Телефон:</i> <br>{{ $lead->phone }}</p>
                                             </div>
                                             <div class="col-12 col-lg-6">
-                                                <p class="mt-0 mb-2"><i>Категория:</i> <br>{{ $lead->category }}</p>
+                                                <p class="mt-0 mb-2"><i>Категория:</i> <br>{{ $lead->category }} <!--<span style="color: #999; font-size: 12px;">({{ count(json_decode($lead->time)) * 30 }} мин)</span>--></p>
                                             </div>
                                             <div class="col-12 col-lg-6">
                                                 <p class="mt-0 mb-2"><i>Госномер:</i> <br>{{ $lead->number }}</p>
