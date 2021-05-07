@@ -150,7 +150,7 @@
                                 });
                             </script>
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(30)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(30), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(30)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H_mm') }}').click(function(event) {
@@ -176,7 +176,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(60)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(60), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(60)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(60)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(60)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(60)->isoFormat('H_mm') }}').click(function(event) {
@@ -202,7 +202,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(90)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(90), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(90)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(90)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(90)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(90)->isoFormat('H_mm') }}').click(function(event) {
@@ -228,7 +228,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(120)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(120), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(120)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(120)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(120)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(120)->isoFormat('H_mm') }}').click(function(event) {
@@ -254,7 +254,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(150)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(150), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(150)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(150)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(150)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(150)->isoFormat('H_mm') }}').click(function(event) {
@@ -280,7 +280,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(180)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(180), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(180)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(180)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(180)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(180)->isoFormat('H_mm') }}').click(function(event) {
@@ -306,7 +306,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(210)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(210), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(210)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(210)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(210)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(210)->isoFormat('H_mm') }}').click(function(event) {
@@ -332,7 +332,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(240)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(240), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(240)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(240)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(240)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(240)->isoFormat('H_mm') }}').click(function(event) {
@@ -358,7 +358,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(270)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(270), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(270)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(270)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(270)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(270)->isoFormat('H_mm') }}').click(function(event) {
@@ -384,7 +384,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(300)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(300), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(300)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(300)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(300)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(300)->isoFormat('H_mm') }}').click(function(event) {
@@ -410,7 +410,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(330)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(330), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(330)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(330)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(330)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(330)->isoFormat('H_mm') }}').click(function(event) {
@@ -436,7 +436,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(360)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(360), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(360)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(360)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(360)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(360)->isoFormat('H_mm') }}').click(function(event) {
@@ -462,7 +462,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(390)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(390), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(390)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(390)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(390)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(390)->isoFormat('H_mm') }}').click(function(event) {
@@ -488,7 +488,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(420)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(420), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(420)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(420)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(420)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(420)->isoFormat('H_mm') }}').click(function(event) {
@@ -514,7 +514,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(450)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(450), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(450)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(450)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(450)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(450)->isoFormat('H_mm') }}').click(function(event) {
@@ -540,7 +540,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(480)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(480), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(480)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(480)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(480)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(480)->isoFormat('H_mm') }}').click(function(event) {
@@ -566,7 +566,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(510)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(510), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(510)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(510)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(510)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(510)->isoFormat('H_mm') }}').click(function(event) {
@@ -592,7 +592,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(540)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(540), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(540)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(540)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(540)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(540)->isoFormat('H_mm') }}').click(function(event) {
@@ -618,7 +618,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(570)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(570), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(570)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(570)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(570)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(570)->isoFormat('H_mm') }}').click(function(event) {
@@ -644,7 +644,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(600)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(600), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(600)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(600)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(600)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(600)->isoFormat('H_mm') }}').click(function(event) {
@@ -670,7 +670,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(630)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(630), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(630)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(630)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(630)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(630)->isoFormat('H_mm') }}').click(function(event) {
@@ -696,7 +696,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(660)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(660), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(660)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(660)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(660)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(660)->isoFormat('H_mm') }}').click(function(event) {
@@ -722,7 +722,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(690)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(690), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(690)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(690)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(690)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(690)->isoFormat('H_mm') }}').click(function(event) {
@@ -748,7 +748,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(720)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(720), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(720)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(720)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(720)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(720)->isoFormat('H_mm') }}').click(function(event) {
@@ -774,7 +774,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(750)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(750), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(750)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(750)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(750)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(750)->isoFormat('H_mm') }}').click(function(event) {
@@ -800,7 +800,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(780)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(780), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(780)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(780)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(780)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(780)->isoFormat('H_mm') }}').click(function(event) {
@@ -826,7 +826,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(810)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(810), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(810)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(810)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(810)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(810)->isoFormat('H_mm') }}').click(function(event) {
@@ -852,7 +852,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(840)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(840), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(840)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(840)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(840)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(840)->isoFormat('H_mm') }}').click(function(event) {
@@ -878,7 +878,7 @@
                                 </script>
                             @endif
 
-                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(870)->locale('ru')->isoFormat('Hmm') >= 0)
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(870), false) <= 0)
                                 <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(870)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(870)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(870)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(870)->isoFormat('H_mm') }}').click(function(event) {
@@ -904,9 +904,425 @@
                                 </script>
                             @endif
 
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(900), false) <= 0)
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(900)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(900)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(900)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <script>
+                                    $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(900)->isoFormat('H_mm') }}').click(function(event) {
+                                        event.preventDefault();
+                                        $('#time').val('');
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(900)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(900)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(900)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(900)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(900)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(900)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
+                                    });
+                                </script>
+                            @endif
+
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(930), false) <= 0)
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(930)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(930)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(930)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <script>
+                                    $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(930)->isoFormat('H_mm') }}').click(function(event) {
+                                        event.preventDefault();
+                                        $('#time').val('');
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(930)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(930)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(930)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(930)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(930)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(930)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
+                                    });
+                                </script>
+                            @endif
+
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(960), false) <= 0)
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(960)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(960)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(960)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <script>
+                                    $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(960)->isoFormat('H_mm') }}').click(function(event) {
+                                        event.preventDefault();
+                                        $('#time').val('');
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(960)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(960)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(960)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(960)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(960)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(960)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
+                                    });
+                                </script>
+                            @endif
+
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(990), false) <= 0)
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(990)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(990)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(990)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <script>
+                                    $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(990)->isoFormat('H_mm') }}').click(function(event) {
+                                        event.preventDefault();
+                                        $('#time').val('');
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(990)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(990)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(990)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(990)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(990)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(990)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
+                                    });
+                                </script>
+                            @endif
+
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1020), false) <= 0)
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1020)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1020)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1020)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <script>
+                                    $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1020)->isoFormat('H_mm') }}').click(function(event) {
+                                        event.preventDefault();
+                                        $('#time').val('');
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1020)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1020)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1020)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1020)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1020)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1020)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
+                                    });
+                                </script>
+                            @endif
+
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1050), false) <= 0)
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1050)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1050)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1050)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <script>
+                                    $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1050)->isoFormat('H_mm') }}').click(function(event) {
+                                        event.preventDefault();
+                                        $('#time').val('');
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1050)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1050)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1050)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1050)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1050)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1050)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
+                                    });
+                                </script>
+                            @endif
+
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1080), false) <= 0)
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1080)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1080)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1080)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <script>
+                                    $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1080)->isoFormat('H_mm') }}').click(function(event) {
+                                        event.preventDefault();
+                                        $('#time').val('');
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1080)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1080)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1080)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1080)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1080)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1080)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
+                                    });
+                                </script>
+                            @endif
+
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1110), false) <= 0)
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1110)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1110)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1110)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <script>
+                                    $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1110)->isoFormat('H_mm') }}').click(function(event) {
+                                        event.preventDefault();
+                                        $('#time').val('');
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1110)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1110)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1110)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1110)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1110)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1110)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
+                                    });
+                                </script>
+                            @endif
+
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1140), false) <= 0)
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1140)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1140)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1140)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <script>
+                                    $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1140)->isoFormat('H_mm') }}').click(function(event) {
+                                        event.preventDefault();
+                                        $('#time').val('');
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1140)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1140)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1140)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1140)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1140)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1140)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
+                                    });
+                                </script>
+                            @endif
+
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1170), false) <= 0)
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1170)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1170)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1170)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <script>
+                                    $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1170)->isoFormat('H_mm') }}').click(function(event) {
+                                        event.preventDefault();
+                                        $('#time').val('');
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1170)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1170)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1170)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1170)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1170)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1170)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
+                                    });
+                                </script>
+                            @endif
+
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1200), false) <= 0)
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1200)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1200)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1200)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <script>
+                                    $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1200)->isoFormat('H_mm') }}').click(function(event) {
+                                        event.preventDefault();
+                                        $('#time').val('');
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1200)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1200)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1200)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1200)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1200)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1200)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
+                                    });
+                                </script>
+                            @endif
+
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1230), false) <= 0)
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1230)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1230)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1230)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <script>
+                                    $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1230)->isoFormat('H_mm') }}').click(function(event) {
+                                        event.preventDefault();
+                                        $('#time').val('');
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1230)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1230)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1230)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1230)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1230)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1230)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
+                                    });
+                                </script>
+                            @endif
+
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1260), false) <= 0)
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1260)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1260)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1260)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <script>
+                                    $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1260)->isoFormat('H_mm') }}').click(function(event) {
+                                        event.preventDefault();
+                                        $('#time').val('');
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1260)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1260)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1260)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1260)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1260)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1260)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
+                                    });
+                                </script>
+                            @endif
+
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1290), false) <= 0)
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1290)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1290)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1290)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <script>
+                                    $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1290)->isoFormat('H_mm') }}').click(function(event) {
+                                        event.preventDefault();
+                                        $('#time').val('');
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1290)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1290)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1290)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1290)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1290)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1290)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
+                                    });
+                                </script>
+                            @endif
+
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1320), false) <= 0)
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1320)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1320)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1320)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <script>
+                                    $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1320)->isoFormat('H_mm') }}').click(function(event) {
+                                        event.preventDefault();
+                                        $('#time').val('');
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1320)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1320)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1320)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1320)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1320)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1320)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
+                                    });
+                                </script>
+                            @endif
+
+                            @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1350), false) <= 0)
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1350)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1350)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(1350)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <script>
+                                    $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1350)->isoFormat('H_mm') }}').click(function(event) {
+                                        event.preventDefault();
+                                        $('#time').val('');
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1350)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1350)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1350)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1350)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1350)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(1350)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
+                                    });
+                                </script>
+                            @endif
+
                             <br><br>
 
-                            <select id="time" name="time[]" class="form-control" multiple style="display:none;">
+                            <select id="time" name="time[]" class="form-control" multiple>
                                 <option @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->isoFormat('H:mm') }}">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->isoFormat('H:mm') }}</option>
                                 
                                 @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(30)->locale('ru')->isoFormat('Hmm') >= 0)

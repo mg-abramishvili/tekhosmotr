@@ -186,10 +186,104 @@
                         <label class="font-weight-bold">Время работы</label>
                         <div class="row">
                             <div class="col-6">
-                                <input class="form-control" name="working_hours_start" value="{{ $techpoint->working_hours_start }}"/>
+                                <select name="working_hours_start" class="custom-select">
+                                    <option value="01:00" @if($techpoint->working_hours_start == '01:00') selected @endif>01:00</option>
+                                    <option value="01:30" @if($techpoint->working_hours_start == '01:30') selected @endif>01:30</option>
+                                    <option value="02:00" @if($techpoint->working_hours_start == '02:00') selected @endif>02:00</option>
+                                    <option value="02:30" @if($techpoint->working_hours_start == '02:30') selected @endif>02:30</option>
+                                    <option value="03:00" @if($techpoint->working_hours_start == '03:00') selected @endif>03:00</option>
+                                    <option value="03:30" @if($techpoint->working_hours_start == '03:30') selected @endif>03:30</option>
+                                    <option value="04:00" @if($techpoint->working_hours_start == '04:00') selected @endif>04:00</option>
+                                    <option value="04:30" @if($techpoint->working_hours_start == '04:30') selected @endif>04:30</option>
+                                    <option value="05:00" @if($techpoint->working_hours_start == '05:00') selected @endif>05:00</option>
+                                    <option value="05:30" @if($techpoint->working_hours_start == '05:30') selected @endif>05:30</option>
+                                    <option value="06:00" @if($techpoint->working_hours_start == '06:00') selected @endif>06:00</option>
+                                    <option value="06:30" @if($techpoint->working_hours_start == '06:30') selected @endif>06:30</option>
+                                    <option value="07:00" @if($techpoint->working_hours_start == '07:00') selected @endif>07:00</option>
+                                    <option value="07:30" @if($techpoint->working_hours_start == '07:30') selected @endif>07:30</option>
+                                    <option value="08:00" @if($techpoint->working_hours_start == '08:00') selected @endif>08:00</option>
+                                    <option value="08:30" @if($techpoint->working_hours_start == '08:30') selected @endif>08:30</option>
+                                    <option value="09:00" @if($techpoint->working_hours_start == '09:00') selected @endif>09:00</option>
+                                    <option value="09:30" @if($techpoint->working_hours_start == '09:30') selected @endif>09:30</option>
+                                    <option value="10:00" @if($techpoint->working_hours_start == '10:00') selected @endif>10:00</option>
+                                    <option value="10:30" @if($techpoint->working_hours_start == '10:30') selected @endif>10:30</option>
+                                    <option value="11:00" @if($techpoint->working_hours_start == '11:00') selected @endif>11:00</option>
+                                    <option value="11:30" @if($techpoint->working_hours_start == '11:30') selected @endif>11:30</option>
+                                    <option value="12:00" @if($techpoint->working_hours_start == '12:00') selected @endif>12:00</option>
+                                    <option value="12:30" @if($techpoint->working_hours_start == '12:30') selected @endif>12:30</option>
+                                    <option value="13:00" @if($techpoint->working_hours_start == '13:00') selected @endif>13:00</option>
+                                    <option value="13:30" @if($techpoint->working_hours_start == '13:30') selected @endif>13:30</option>
+                                    <option value="14:00" @if($techpoint->working_hours_start == '14:00') selected @endif>14:00</option>
+                                    <option value="14:30" @if($techpoint->working_hours_start == '14:30') selected @endif>14:30</option>
+                                    <option value="15:00" @if($techpoint->working_hours_start == '15:00') selected @endif>15:00</option>
+                                    <option value="15:30" @if($techpoint->working_hours_start == '15:30') selected @endif>15:30</option>
+                                    <option value="16:00" @if($techpoint->working_hours_start == '16:00') selected @endif>16:00</option>
+                                    <option value="16:30" @if($techpoint->working_hours_start == '16:30') selected @endif>16:30</option>
+                                    <option value="17:00" @if($techpoint->working_hours_start == '17:00') selected @endif>17:00</option>
+                                    <option value="17:30" @if($techpoint->working_hours_start == '17:30') selected @endif>17:30</option>
+                                    <option value="18:00" @if($techpoint->working_hours_start == '18:00') selected @endif>18:00</option>
+                                    <option value="18:30" @if($techpoint->working_hours_start == '18:30') selected @endif>18:30</option>
+                                    <option value="19:00" @if($techpoint->working_hours_start == '19:00') selected @endif>19:00</option>
+                                    <option value="19:30" @if($techpoint->working_hours_start == '19:30') selected @endif>19:30</option>
+                                    <option value="20:00" @if($techpoint->working_hours_start == '20:00') selected @endif>20:00</option>
+                                    <option value="20:30" @if($techpoint->working_hours_start == '20:30') selected @endif>20:30</option>
+                                    <option value="21:00" @if($techpoint->working_hours_start == '21:00') selected @endif>21:00</option>
+                                    <option value="21:30" @if($techpoint->working_hours_start == '21:30') selected @endif>21:30</option>
+                                    <option value="22:00" @if($techpoint->working_hours_start == '22:00') selected @endif>22:00</option>
+                                    <option value="22:30" @if($techpoint->working_hours_start == '22:30') selected @endif>22:30</option>
+                                    <option value="23:00" @if($techpoint->working_hours_start == '23:00') selected @endif>23:00</option>
+                                    <option value="23:30" @if($techpoint->working_hours_start == '23:30') selected @endif>23:30</option>
+                                </select>
                             </div>
                             <div class="col-6">
-                                <input class="form-control" name="working_hours_end" value="{{ $techpoint->working_hours_end }}"/>
+                                <select name="working_hours_end" class="custom-select">
+                                    <option value="01:00" @if($techpoint->working_hours_end == '01:00') selected @endif>01:00</option>
+                                    <option value="01:30" @if($techpoint->working_hours_end == '01:30') selected @endif>01:30</option>
+                                    <option value="02:00" @if($techpoint->working_hours_end == '02:00') selected @endif>02:00</option>
+                                    <option value="02:30" @if($techpoint->working_hours_end == '02:30') selected @endif>02:30</option>
+                                    <option value="03:00" @if($techpoint->working_hours_end == '03:00') selected @endif>03:00</option>
+                                    <option value="03:30" @if($techpoint->working_hours_end == '03:30') selected @endif>03:30</option>
+                                    <option value="04:00" @if($techpoint->working_hours_end == '04:00') selected @endif>04:00</option>
+                                    <option value="04:30" @if($techpoint->working_hours_end == '04:30') selected @endif>04:30</option>
+                                    <option value="05:00" @if($techpoint->working_hours_end == '05:00') selected @endif>05:00</option>
+                                    <option value="05:30" @if($techpoint->working_hours_end == '05:30') selected @endif>05:30</option>
+                                    <option value="06:00" @if($techpoint->working_hours_end == '06:00') selected @endif>06:00</option>
+                                    <option value="06:30" @if($techpoint->working_hours_end == '06:30') selected @endif>06:30</option>
+                                    <option value="07:00" @if($techpoint->working_hours_end == '07:00') selected @endif>07:00</option>
+                                    <option value="07:30" @if($techpoint->working_hours_end == '07:30') selected @endif>07:30</option>
+                                    <option value="08:00" @if($techpoint->working_hours_end == '08:00') selected @endif>08:00</option>
+                                    <option value="08:30" @if($techpoint->working_hours_end == '08:30') selected @endif>08:30</option>
+                                    <option value="09:00" @if($techpoint->working_hours_end == '09:00') selected @endif>09:00</option>
+                                    <option value="09:30" @if($techpoint->working_hours_end == '09:30') selected @endif>09:30</option>
+                                    <option value="10:00" @if($techpoint->working_hours_end == '10:00') selected @endif>10:00</option>
+                                    <option value="10:30" @if($techpoint->working_hours_end == '10:30') selected @endif>10:30</option>
+                                    <option value="11:00" @if($techpoint->working_hours_end == '11:00') selected @endif>11:00</option>
+                                    <option value="11:30" @if($techpoint->working_hours_end == '11:30') selected @endif>11:30</option>
+                                    <option value="12:00" @if($techpoint->working_hours_end == '12:00') selected @endif>12:00</option>
+                                    <option value="12:30" @if($techpoint->working_hours_end == '12:30') selected @endif>12:30</option>
+                                    <option value="13:00" @if($techpoint->working_hours_end == '13:00') selected @endif>13:00</option>
+                                    <option value="13:30" @if($techpoint->working_hours_end == '13:30') selected @endif>13:30</option>
+                                    <option value="14:00" @if($techpoint->working_hours_end == '14:00') selected @endif>14:00</option>
+                                    <option value="14:30" @if($techpoint->working_hours_end == '14:30') selected @endif>14:30</option>
+                                    <option value="15:00" @if($techpoint->working_hours_end == '15:00') selected @endif>15:00</option>
+                                    <option value="15:30" @if($techpoint->working_hours_end == '15:30') selected @endif>15:30</option>
+                                    <option value="16:00" @if($techpoint->working_hours_end == '16:00') selected @endif>16:00</option>
+                                    <option value="16:30" @if($techpoint->working_hours_end == '16:30') selected @endif>16:30</option>
+                                    <option value="17:00" @if($techpoint->working_hours_end == '17:00') selected @endif>17:00</option>
+                                    <option value="17:30" @if($techpoint->working_hours_end == '17:30') selected @endif>17:30</option>
+                                    <option value="18:00" @if($techpoint->working_hours_end == '18:00') selected @endif>18:00</option>
+                                    <option value="18:30" @if($techpoint->working_hours_end == '18:30') selected @endif>18:30</option>
+                                    <option value="19:00" @if($techpoint->working_hours_end == '19:00') selected @endif>19:00</option>
+                                    <option value="19:30" @if($techpoint->working_hours_end == '19:30') selected @endif>19:30</option>
+                                    <option value="20:00" @if($techpoint->working_hours_end == '20:00') selected @endif>20:00</option>
+                                    <option value="20:30" @if($techpoint->working_hours_end == '20:30') selected @endif>20:30</option>
+                                    <option value="21:00" @if($techpoint->working_hours_end == '21:00') selected @endif>21:00</option>
+                                    <option value="21:30" @if($techpoint->working_hours_end == '21:30') selected @endif>21:30</option>
+                                    <option value="22:00" @if($techpoint->working_hours_end == '22:00') selected @endif>22:00</option>
+                                    <option value="22:30" @if($techpoint->working_hours_end == '22:30') selected @endif>22:30</option>
+                                    <option value="23:00" @if($techpoint->working_hours_end == '23:00') selected @endif>23:00</option>
+                                    <option value="23:30" @if($techpoint->working_hours_end == '23:30') selected @endif>23:30</option>
+                                </select>
                             </div>
                         </div>
                         @if ($errors->has('working_hours'))
@@ -220,6 +314,7 @@
                 @endif
             </div>
 
+            @if(auth()->user()->id == '1')
             <div class="form-group">
                 <label class="font-weight-bold">Кнопка записи</label>
                 <select class="form-control" name="status">
@@ -233,8 +328,7 @@
                     </div>
                 @endif
             </div>
-
-            <hr>
+            @endif
 
             <button type="submit" class="btn btn-lg btn-success">Сохранить</button>
         </form>

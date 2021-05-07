@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Lead;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Auth;
 
 class LeadController extends Controller
 {
@@ -31,7 +32,13 @@ class LeadController extends Controller
              $start->addDay();
         }
 
-        $leads = Lead::all();
+        if(Auth::user()->id == '1') {
+            $leads = Lead::all();
+        } else {
+            $leads = Lead::with('techpoints.users')->whereHas('techpoints.users', function($q) {
+                $q->where('user_id', '=', Auth::user()->id);
+            })->get();
+        }
         return view('backend.leads.index', compact('leads', 'month', 'month_days'));
     }
 }

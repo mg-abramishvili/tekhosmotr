@@ -2,31 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Techpoint;
-use App\Models\City;
-use App\Models\Cat;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use App\Models\City;
+use App\Models\Techpoint;
 
-class TechpointController extends Controller
+class UserController extends Controller
 {
-    public function index()
-    {
-        if(Auth::user()->id == '1') {
-            $techpoints = Techpoint::all();
-        } else {
-            $techpoints = Techpoint::whereHas('users', function($q) {
-                $q->where('user_id', '=', Auth::user()->id);
-            })->get();
-        }
-        return view('backend.techpoints.index', compact('techpoints'));
+    public function index() {
+        $users = User::with('techpoints')->get();
+        return view('backend.users.index', compact('users'));
     }
 
     public function create()
     {
         $cities = City::orderBy('sort', 'ASC')->get();
-        $cats = Cat::all();
-        return view('backend.techpoints.create', compact('cities', 'cats'));
+        $techpoints = Techpoint::all();
+        return view('backend.users.create', compact('cities', 'techpoints'));
     }
 
     public function edit($id)
@@ -47,39 +40,19 @@ class TechpointController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required',
-            'address' => 'required',
-            'legal_address' => 'required',
-            'tel' => 'required',
-            'coordinates' => 'required',
+            'name' => 'required',
+            'email' => 'unique:users,email',
+            'password' => 'required',
         ]);
 
         $data = request()->all();
-        $techpoints = new Techpoint();
-        $techpoints->title = $data['title'];
-        $techpoints->address = $data['address'];
-        $techpoints->legal_address = $data['legal_address'];
-        $techpoints->tel = $data['tel'];
-        $techpoints->email = $data['email'];
-        $techpoints->coordinates = $data['coordinates'];
-        $techpoints->status = $data['status'];
-        $techpoints->inn = $data['inn'];
-        $techpoints->ogrn = $data['ogrn'];
-        $techpoints->number = $data['number'];
-        $techpoints->att_number = $data['att_number'];
-        $techpoints->working_hours_start = $data['working_hours_start'];
-        $techpoints->working_hours_end = $data['working_hours_end'];
-        
-        if (isset($data['bus_day'])) {
-            $techpoints->bus_day = json_encode($data['bus_day']);
-        } else {
-            $techpoints->bus_day = null;
-        }
-        
-        $techpoints->save();
-        $techpoints->cities()->attach($request->cities, ['techpoint_id' => $techpoints->id]);
-        $techpoints->cats()->attach($request->cats, ['techpoint_id' => $techpoints->id]);
-        return redirect('/backend/techpoints');
+        $users = new User();
+        $users->name = $data['name'];
+        $users->email = $data['email'];
+        $users->password = Hash::make($data['password']);
+        $users->save();
+        $users->techpoints()->attach($request->techpoints, ['user_id' => $users->id]);
+        return redirect('/backend/users');
     }
 
     public function update(Request $request)
@@ -121,5 +94,4 @@ class TechpointController extends Controller
         $techpoints->cats()->attach($request->cats, ['techpoint_id' => $techpoints->id]);
         return redirect('/backend/techpoints');
     }
-
 }

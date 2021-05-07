@@ -27,4 +27,9 @@ class Techpoint extends Model
     {
         return $this->belongsToMany('App\Models\Lead');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User');
+    }
 }

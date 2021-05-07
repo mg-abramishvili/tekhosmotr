@@ -5,6 +5,7 @@ use App\Http\Controllers\FrontPageController;
 use App\Http\Controllers\TechpointController;
 use App\Http\Controllers\FrontTechpointController;
 use App\Http\Controllers\LeadController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes([
@@ -22,6 +23,10 @@ Route::get('/backend/techpoints/delete/{id}','App\Http\Controllers\TechpointCont
 
 // PAGES (BACKEND)
 Route::resource('/backend/pages', PageController::class)->middleware('auth');
+
+// USERS (BACKEND)
+Route::resource('/backend/users', UserController::class)->middleware('auth');
+Route::get('/backend/users/delete/{id}','App\Http\Controllers\UserController@delete')->middleware('auth');
 
 // LEADS (BACKEND)
 Route::resource('/backend/leads', LeadController::class)->middleware('auth');

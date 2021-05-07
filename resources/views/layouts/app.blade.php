@@ -43,12 +43,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/backend/techpoints">Станции ТО</a>
                         </li>
+                        @if(auth()->user()->id == '1')
                         <li class="nav-item">
                             <a class="nav-link" href="/backend/pages">Страницы</a>
                         </li>
+                        @endif
                         <li class="nav-item">
                             <a class="nav-link" href="/backend/leads-period/now">Заявки</a>
                         </li>
+                        @if(auth()->user()->id == '1')
+                        <li class="nav-item">
+                            <a class="nav-link" href="/backend/users">Пользователи</a>
+                        </li>
+                        @endif
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">

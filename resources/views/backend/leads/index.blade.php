@@ -7,8 +7,10 @@
                 <h1 style="text-transform: capitalize">{{ \Carbon\Carbon::parse($month)->locale('ru')->isoFormat('MMMM YYYY') }}</h1>
             </div>
             <div class="col-6" style="text-align: right;">
+                @if(\Carbon\Carbon::parse($month)->locale('ru')->isoFormat('YYYY-MM') != '2021-05')
                 <a href="/backend/leads-period/{{ \Carbon\Carbon::parse($month)->subMonth(1)->locale('ru')->isoFormat('YYYY-MM') }}">← пред. месяц</a>
                 |
+                @endif
                 <a href="/backend/leads-period/{{ \Carbon\Carbon::parse($month)->addMonth(1)->locale('ru')->isoFormat('YYYY-MM') }}">след. месяц →</a>
             </div>
         </div>
@@ -170,10 +172,8 @@
                                     <span>{{ \Carbon\Carbon::parse($day)->locale('ru')->isoFormat('D') }}</span>
 
                                     @foreach ($leads as $lead)
-                                        @if($loop->first)
-                                            @if($lead->where("n_date", \Carbon\Carbon::parse($day))->count() > 0)
-                                                <p class="circle circle_{{\Carbon\Carbon::parse($day)->locale('ru')->isoFormat('YYYY_MM_DD') }}"><!--{{ $lead->where("n_date", \Carbon\Carbon::parse($day))->count() }}--></p>
-                                            @endif
+                                        @if($lead->n_date == \Carbon\Carbon::parse($day)->isoFormat('YYYY-MM-DD'))
+                                            <p class="circle circle_{{\Carbon\Carbon::parse($day)->locale('ru')->isoFormat('YYYY_MM_DD') }}"><!--{{ $lead->where("n_date", \Carbon\Carbon::parse($day))->count() }}--></p>
                                         @endif
 
                                         @if(\Carbon\Carbon::parse($lead->n_date)->locale('en')->isoFormat('DD.MM.YYYY') == \Carbon\Carbon::parse($day)->locale('en')->isoFormat('DD.MM.YYYY'))
