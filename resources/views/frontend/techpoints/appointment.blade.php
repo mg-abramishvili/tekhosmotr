@@ -150,15 +150,23 @@
                             </script>
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(30)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(30)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(30)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        @if($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H:mm') }}"]').prop('selected', true);
                                             if($('#time option:selected').next().is(':enabled')) {
                                                 $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(30)->isoFormat('H_mm') }}').addClass('btn-primary');
                                             } else {
                                                 alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
                                             }
@@ -168,449 +176,729 @@
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(60)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(60)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(60)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(60)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(60)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(60)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(60)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(60)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(60)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(60)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(60)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(60)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(60)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(60)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(60)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(90)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(90)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(90)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(90)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(90)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(90)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(90)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(90)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(90)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(90)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(90)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(90)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(90)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(90)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(90)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(120)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(120)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(120)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(120)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(120)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(120)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(120)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(120)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(120)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(120)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(120)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(120)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(120)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(120)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(120)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(150)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(150)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(150)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(150)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(150)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(150)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(150)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(150)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(150)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(150)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(150)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(150)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(150)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(150)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(150)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(180)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(180)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(180)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(180)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(180)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(180)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(180)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(180)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(180)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(180)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(180)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(180)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(180)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(180)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(180)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(210)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(210)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(210)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(210)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(210)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(210)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(210)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(210)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(210)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(210)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(210)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(210)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(210)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(210)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(210)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(240)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(240)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(240)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(240)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(240)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(240)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(240)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(240)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(240)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(240)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(240)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(240)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(240)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(240)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(240)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(270)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(270)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(270)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(270)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(270)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(270)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(270)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(270)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(270)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(270)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(270)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(270)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(270)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(270)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(270)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(300)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(300)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(300)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(300)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(300)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(300)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(300)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(300)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(300)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(300)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(300)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(300)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(300)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(300)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(300)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(330)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(330)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(330)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(330)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(330)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(330)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(330)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(330)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(330)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(330)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(330)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(330)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(330)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(330)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(330)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(360)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(360)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(360)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(360)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(360)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(360)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(360)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(360)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(360)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(360)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(360)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(360)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(360)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(360)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(360)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(390)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(390)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(390)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(390)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(390)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(390)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(390)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(390)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(390)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(390)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(390)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(390)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(390)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(390)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(390)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(420)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(420)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(420)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(420)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(420)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(420)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(420)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(420)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(420)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(420)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(420)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(420)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(420)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(420)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(420)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(450)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(450)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(450)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(450)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(450)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(450)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(450)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(450)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(450)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(450)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(450)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(450)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(450)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(450)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(450)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(480)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(480)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(480)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(480)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(480)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(480)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(480)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(480)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(480)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(480)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(480)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(480)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(480)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(480)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(480)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(510)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(510)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(510)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(510)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(510)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(510)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(510)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(510)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(510)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(510)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(510)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(510)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(510)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(510)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(510)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(540)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(540)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(540)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(540)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(540)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(540)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(540)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(540)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(540)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(540)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(540)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(540)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(540)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(540)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(540)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(570)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(570)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(570)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(570)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(570)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(570)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(570)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(570)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(570)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(570)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(570)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(570)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(570)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(570)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(570)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(600)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(600)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(600)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(600)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(600)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(600)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(600)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(600)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(600)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(600)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(600)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(600)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(600)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(600)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(600)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(630)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(630)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(630)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(630)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(630)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(630)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(630)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(630)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(630)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(630)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(630)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(630)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(630)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(630)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(630)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(660)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(660)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(660)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(660)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(660)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(660)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(660)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(660)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(660)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(660)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(660)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(660)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(660)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(660)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(660)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(690)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(690)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(690)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(690)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(690)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(690)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(690)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(690)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(690)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(690)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(690)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(690)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(690)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(690)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(690)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(720)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(720)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(720)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(720)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(720)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(720)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(720)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(720)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(720)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(720)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(720)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(720)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(720)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(720)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(720)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(750)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(750)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(750)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(750)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(750)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(750)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(750)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(750)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(750)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(750)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(750)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(750)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(750)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(750)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(750)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(780)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(780)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(780)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(780)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(780)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(780)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(780)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(780)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(780)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(780)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(780)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(780)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(780)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(780)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(780)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(810)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(810)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(810)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(810)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(810)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(810)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(810)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(810)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(810)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(810)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(810)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(810)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(810)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(810)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(810)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(840)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(840)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(840)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(840)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(840)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(840)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(840)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(840)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(840)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(840)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(840)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(840)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(840)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(840)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(840)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
 
                             @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->locale('ru')->isoFormat('Hmm') - \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(870)->locale('ru')->isoFormat('Hmm') >= 0)
-                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(870)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(870)->isoFormat('H_mm') }}" class="btn btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(870)->locale('ru')->isoFormat('H:mm') }}</button>
+                                <button @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(870)->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach id="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(870)->isoFormat('H_mm') }}" class="btn btn-time btn-outline-primary mb-1">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(870)->locale('ru')->isoFormat('H:mm') }}</button>
                                 <script>
                                     $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(870)->isoFormat('H_mm') }}').click(function(event) {
                                         event.preventDefault();
                                         $('#time').val('');
-                                        $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(870)->isoFormat('H:mm') }}"]').prop('selected', true);
-                                        if($('#time option:selected').next().is(':enabled')) {
-                                            $('#time option:selected').next().prop('selected', true);
-                                        } else {
-                                            alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
-                                        }
+                                        $('.btn-time').removeClass('btn-primary');
+                                        $('.btn-time').addClass('btn-outline-primary');
+                                        @if($cat == 'M1' || $cat == 'N1' || $cat == 'N3' || $cat == 'O1' || $cat == 'O2')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(870)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(870)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                            $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(870)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                        @elseif($cat == 'M2' || $cat == 'M3' || $cat == 'N2' || $cat == 'N3' || $cat == 'O3' || $cat == 'O4')
+                                            $('#time option[value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(870)->isoFormat('H:mm') }}"]').prop('selected', true);
+                                            if($('#time option:selected').next().is(':enabled')) {
+                                                $('#time option:selected').next().prop('selected', true);
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(870)->isoFormat('H_mm') }}').removeClass('btn-outline-primary');
+                                                $('#{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->addMinutes(870)->isoFormat('H_mm') }}').addClass('btn-primary');
+                                            } else {
+                                                alert('Времени на техосмотр категории {{$cat}} не хватит. Пожалуйста, выберите другое время.')
+                                            }
+                                        @endif
                                     });
                                 </script>
                             @endif
