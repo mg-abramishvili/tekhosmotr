@@ -1332,7 +1332,7 @@
 
                             <br><br>
 
-                            <select id="time" name="time[]" class="form-control" multiple>
+                            <select id="time" name="time[]" class="form-control" multiple style="display: none;">
                                 <option @foreach($leads as $lead) @foreach(json_decode($lead->time) as $tm) @if(\Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->isoFormat('H:mm') == \Carbon\Carbon::parse($tm)->locale('ru')->isoFormat('H:mm')) disabled @endif @endforeach @endforeach value="{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->isoFormat('H:mm') }}">{{ \Carbon\Carbon::parse($techpoint->working_hours_start)->locale('ru')->isoFormat('H:mm') }}</option>
                                 
                                 @if(\Carbon\Carbon::parse($techpoint->working_hours_end)->diffInMinutes(\Carbon\Carbon::parse($techpoint->working_hours_start)->addMinutes(30), false) <= 0)
