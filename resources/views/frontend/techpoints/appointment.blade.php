@@ -1653,8 +1653,9 @@
                         $('.flash-success').show();
                         $('#lead_form').trigger("reset");
                         setTimeout(function() {
-                            $('.flash-success').hide()
-                        }, 3000);
+                            //$('.flash-success').hide()
+                            window.location.href = "/techpoint/{{$techpoint->id}}";
+                        }, 1500);
                     }
                 },
 
