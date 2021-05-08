@@ -4,7 +4,7 @@
 Станция:<br>{{ $station }}
 <br><br>
 
-Дата:<br>{{ $date }}
+Дата:<br>{{ $n_date }}
 <br><br>
 
 Время:<br>{{ $time }}

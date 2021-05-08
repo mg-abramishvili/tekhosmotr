@@ -29,7 +29,7 @@ class NewLead extends Mailable
             ->markdown('emails.lead')
             ->with([
             'station' => $this->lead->station,
-            'date' => $this->lead->date,
+            'n_date' => $this->lead->n_date,
             'time' => $this->lead->time,
             'number' => $this->lead->number,
             'category' => $this->lead->category,
