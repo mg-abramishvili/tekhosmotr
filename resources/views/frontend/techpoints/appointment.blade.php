@@ -36,246 +36,247 @@
                             <label>Дата</label>
                             <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" name="n_date" class="custom-select" required>
                                 @if($cat == 'M2' || $cat == 'M3')
-
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(5)->locale('en')->isoFormat('dddd'))
-                                            @if(\Carbon\Carbon::now()->addDay(5)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD'))
-                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(5)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(5)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                    {{ \Carbon\Carbon::now()->addDay(5)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                                </option>
-                                            @else
-                                                <option disabled selected value> -- выберите дату -- </option>
+                                    @if(json_decode($techpoint->bus_day) > 0)
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(5)->locale('en')->isoFormat('dddd'))
+                                                @if(\Carbon\Carbon::now()->addDay(5)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD'))
+                                                    <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(5)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(5)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                        {{ \Carbon\Carbon::now()->addDay(5)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                    </option>
+                                                @else
+                                                    <option disabled selected value> -- выберите дату -- </option>
+                                                @endif
                                             @endif
-                                        @endif
-                                    @endforeach
-            
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(6)->locale('en')->isoFormat('dddd'))
-                                            @if(\Carbon\Carbon::now()->addDay(6)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD'))
-                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(6)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(6)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                    {{ \Carbon\Carbon::now()->addDay(6)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                                </option>
-                                            @else
-                                                <option disabled selected value> -- выберите дату -- </option>
+                                        @endforeach
+                
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(6)->locale('en')->isoFormat('dddd'))
+                                                @if(\Carbon\Carbon::now()->addDay(6)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD'))
+                                                    <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(6)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(6)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                        {{ \Carbon\Carbon::now()->addDay(6)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                    </option>
+                                                @else
+                                                    <option disabled selected value> -- выберите дату -- </option>
+                                                @endif
                                             @endif
-                                        @endif
-                                    @endforeach
-            
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(7)->locale('en')->isoFormat('dddd'))
-                                            @if(\Carbon\Carbon::now()->addDay(7)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD'))
-                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(7)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(7)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                    {{ \Carbon\Carbon::now()->addDay(7)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                                </option>
-                                            @else
-                                                <option disabled selected value> -- выберите дату -- </option>
+                                        @endforeach
+                
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(7)->locale('en')->isoFormat('dddd'))
+                                                @if(\Carbon\Carbon::now()->addDay(7)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD'))
+                                                    <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(7)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(7)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                        {{ \Carbon\Carbon::now()->addDay(7)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                    </option>
+                                                @else
+                                                    <option disabled selected value> -- выберите дату -- </option>
+                                                @endif
                                             @endif
-                                        @endif
-                                    @endforeach
-            
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(8)->locale('en')->isoFormat('dddd'))
-                                            @if(\Carbon\Carbon::now()->addDay(8)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD'))
-                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(8)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(8)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                    {{ \Carbon\Carbon::now()->addDay(8)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                                </option>
-                                            @else
-                                                <option disabled selected value> -- выберите дату -- </option>
+                                        @endforeach
+                
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(8)->locale('en')->isoFormat('dddd'))
+                                                @if(\Carbon\Carbon::now()->addDay(8)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD'))
+                                                    <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(8)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(8)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                        {{ \Carbon\Carbon::now()->addDay(8)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                    </option>
+                                                @else
+                                                    <option disabled selected value> -- выберите дату -- </option>
+                                                @endif
                                             @endif
-                                        @endif
-                                    @endforeach
-            
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(9)->locale('en')->isoFormat('dddd'))
-                                            @if(\Carbon\Carbon::now()->addDay(9)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD'))
-                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(9)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(9)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                    {{ \Carbon\Carbon::now()->addDay(9)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                                </option>
-                                            @else
-                                                <option disabled selected value> -- выберите дату -- </option>
+                                        @endforeach
+                
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(9)->locale('en')->isoFormat('dddd'))
+                                                @if(\Carbon\Carbon::now()->addDay(9)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD'))
+                                                    <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(9)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(9)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                        {{ \Carbon\Carbon::now()->addDay(9)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                    </option>
+                                                @else
+                                                    <option disabled selected value> -- выберите дату -- </option>
+                                                @endif
                                             @endif
-                                        @endif
-                                    @endforeach
-            
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(10)->locale('en')->isoFormat('dddd'))
-                                            @if(\Carbon\Carbon::now()->addDay(10)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD'))
-                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(10)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(10)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                    {{ \Carbon\Carbon::now()->addDay(10)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                                </option>
-                                            @else
-                                                <option disabled selected value> -- выберите дату -- </option>
+                                        @endforeach
+                
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(10)->locale('en')->isoFormat('dddd'))
+                                                @if(\Carbon\Carbon::now()->addDay(10)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD'))
+                                                    <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(10)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(10)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                        {{ \Carbon\Carbon::now()->addDay(10)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                    </option>
+                                                @else
+                                                    <option disabled selected value> -- выберите дату -- </option>
+                                                @endif
                                             @endif
-                                        @endif
-                                    @endforeach
-            
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(11)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(11)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(11)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(11)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @endforeach
+                
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(11)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(11)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(11)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(11)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(12)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(12)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(12)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(12)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(12)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(12)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(12)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(12)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(13)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(13)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(13)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(13)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(13)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(13)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(13)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(13)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(14)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(14)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(14)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(14)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(14)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(14)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(14)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(14)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(15)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(15)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(15)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(15)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(15)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(15)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(15)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(15)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(16)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(16)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(16)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(16)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(16)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(16)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(16)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(16)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(17)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(17)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(17)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(17)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(17)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(17)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(17)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(17)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(18)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(18)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(18)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(18)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(18)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(18)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(18)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(18)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(19)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(19)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(19)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(19)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(19)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(19)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(19)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(19)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(20)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(20)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(20)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(20)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(20)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(20)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(20)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(20)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(21)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(21)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(21)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(21)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(21)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(21)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(21)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(21)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(22)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(22)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(22)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(22)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(22)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(22)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(22)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(22)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(23)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(23)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(23)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(23)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(23)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(23)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(23)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(23)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(24)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(24)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(24)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(24)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(24)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(24)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(24)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(24)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(25)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(25)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(25)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(25)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(25)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(25)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(25)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(25)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(26)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(26)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(26)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(26)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(26)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(26)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(26)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(26)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(27)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(27)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(27)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(27)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(27)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(27)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(27)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(27)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(28)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(28)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(28)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(28)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(28)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(28)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(28)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(28)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(29)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(29)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(29)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(29)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(29)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(29)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(29)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(29)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(30)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(30)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(30)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(30)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(30)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(30)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(30)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(30)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
 
-                                    @foreach(json_decode($techpoint->bus_day) as $bd)
-                                        @if($bd == \Carbon\Carbon::now()->addDay(31)->locale('en')->isoFormat('dddd'))
-                                            <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(31)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(31)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
-                                                {{ \Carbon\Carbon::now()->addDay(31)->locale('ru')->isoFormat('DD MMM (dd)') }}
-                                            </option>
-                                        @endif
-                                    @endforeach
+                                        @foreach(json_decode($techpoint->bus_day) as $bd)
+                                            @if($bd == \Carbon\Carbon::now()->addDay(31)->locale('en')->isoFormat('dddd'))
+                                                <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(31)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(31)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>
+                                                    {{ \Carbon\Carbon::now()->addDay(31)->locale('ru')->isoFormat('DD MMM (dd)') }}
+                                                </option>
+                                            @endif
+                                        @endforeach
+                                    @endif
                                 @else
                                     <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>{{ \Carbon\Carbon::now()->locale('ru')->isoFormat('DD MMM (dd)') }}</option>
                                     <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(1)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(1)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>{{ \Carbon\Carbon::now()->addDay(1)->locale('ru')->isoFormat('DD MMM (dd)') }}</option>
