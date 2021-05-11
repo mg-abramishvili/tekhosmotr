@@ -31,6 +31,7 @@ Route::get('/backend/users/delete/{id}','App\Http\Controllers\UserController@del
 // LEADS (BACKEND)
 Route::resource('/backend/leads', LeadController::class)->middleware('auth');
 Route::get('/backend/leads-period/{month}', 'App\Http\Controllers\LeadController@index_period')->middleware('auth');
+Route::get('/backend/leads/delete/{id}','App\Http\Controllers\LeadController@delete')->middleware('auth');
 
 // PAGES (FRONT)
 Route::get('/p/{slug}', 'App\Http\Controllers\FrontPageController@show');

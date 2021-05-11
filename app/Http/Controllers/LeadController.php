@@ -41,4 +41,12 @@ class LeadController extends Controller
         }
         return view('backend.leads.index', compact('leads', 'month', 'month_days'));
     }
+
+    public function delete($id)
+    {
+        $lead = Lead::find($id);
+        $lead->delete();
+        $lead->techpoints()->detach();
+        return redirect('/backend/leads-period/now');
+    }
 }

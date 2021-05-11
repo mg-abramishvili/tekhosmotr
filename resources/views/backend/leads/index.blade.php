@@ -200,7 +200,7 @@
                                                 <span style="font-size: 12px; color: #757575;">{{ $lead->station }}</span>
                                             </div>
                                             <div class="col-6 text-right">
-                                                <small>{{ \Carbon\Carbon::parse($lead->n_date)->locale('ru')->isoFormat('DD.MM.YYYY') }}</small>
+                                                <small>{{ \Carbon\Carbon::parse($lead->n_date)->locale('ru')->isoFormat('DD.MM.YYYY') }} @if(auth()->user()->id == '1')<i><a href="/backend/leads/delete/{{$lead->id}}">удалить заявку</a></i>@endif</small>
                                             </div>
                                         </div>
                                         <hr>
