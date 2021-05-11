@@ -1729,7 +1729,7 @@
                         <span class="duration_error text-danger"></span>
                     </div>-->
 
-                    <span class="date_error text-center text-danger"></span>
+                    <span class="n_date_error text-center text-danger"></span>
 
                 </div>
             </div>
@@ -1797,7 +1797,7 @@
 
             $('.flash-success').hide();
             $('.station_error').hide();
-            $('.date_error').hide();
+            $('.n_date_error').hide();
             $('.time_error').hide();
             $('.number_error').hide();
             $('.category_error').hide();
