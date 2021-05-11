@@ -309,7 +309,6 @@
                                     <option value="/appointment/{{$techpoint->id}}/{{ $cat }}/{{ \Carbon\Carbon::now()->addDay(29)->locale('ru')->isoFormat('YYYY-MM-DD') }}" @if(\Carbon\Carbon::now()->addDay(29)->locale('ru')->isoFormat('YYYY-MM-DD') == \Carbon\Carbon::parse($date)->isoFormat('YYYY-MM-DD')) selected @endif>{{ \Carbon\Carbon::now()->addDay(29)->locale('ru')->isoFormat('DD MMM (dd)') }}</option>
                                 @endif
                             </select>
-                            <span class="date_error text-center text-danger"></span>
                         </div>
 
                         <div class="form-group">
@@ -1729,6 +1728,8 @@
                         <input type="text" class="form-control" name="duration">
                         <span class="duration_error text-danger"></span>
                     </div>-->
+
+                    <span class="date_error text-center text-danger"></span>
 
                 </div>
             </div>
