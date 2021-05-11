@@ -45,6 +45,11 @@
                                                 </option>
                                             @else
                                                 <option disabled selected value> -- выберите дату -- </option>
+                                                <script>
+                                                    $(document).ready(function() {
+                                                        $('#time_group').hide();
+                                                    });
+                                                </script>
                                             @endif
                                         @endif
                                     @endforeach
@@ -57,6 +62,11 @@
                                                 </option>
                                             @else
                                                 <option disabled selected value> -- выберите дату -- </option>
+                                                <script>
+                                                    $(document).ready(function() {
+                                                        $('#time_group').hide();
+                                                    });
+                                                </script>
                                             @endif
                                         @endif
                                     @endforeach
@@ -69,6 +79,11 @@
                                                 </option>
                                             @else
                                                 <option disabled selected value> -- выберите дату -- </option>
+                                                <script>
+                                                    $(document).ready(function() {
+                                                        $('#time_group').hide();
+                                                    });
+                                                </script>
                                             @endif
                                         @endif
                                     @endforeach
@@ -81,6 +96,11 @@
                                                 </option>
                                             @else
                                                 <option disabled selected value> -- выберите дату -- </option>
+                                                <script>
+                                                    $(document).ready(function() {
+                                                        $('#time_group').hide();
+                                                    });
+                                                </script>
                                             @endif
                                         @endif
                                     @endforeach
@@ -304,7 +324,7 @@
                             <span class="date_error text-center text-danger"></span>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" id="time_group">
                             <label>Время</label>
         
                             <style>
