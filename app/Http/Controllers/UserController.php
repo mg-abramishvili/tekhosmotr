@@ -32,9 +32,10 @@ class UserController extends Controller
 
     public function delete($id)
     {
-        $techpoint = Techpoint::find($id);
-        $techpoint->delete();
-        return redirect('/backend/techpoints');
+        $user = User::find($id);
+        $user->delete();
+        $user->techpoints()->detach();
+        return redirect('/backend/users');
     }
 
     public function store(Request $request)
