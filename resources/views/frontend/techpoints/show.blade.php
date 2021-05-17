@@ -82,7 +82,7 @@
                     </div>
 
                     @if($techpoint->status == 'enabled')
-                        <!--<a href="/appointment/{{$techpoint->id}}/@foreach($techpoint->cats as $ctg){{""}}@if($loop->first){{""}}{{$ctg->title}}{{""}}@endif{{""}}@endforeach/{{ \Carbon\Carbon::now()->locale('ru')->isoFormat('YYYY-MM-DD') }}" class="btn btn-lg btn-primary btn-lead">Записаться</a>-->
+                        <a href="/appointment/{{$techpoint->id}}/@foreach($techpoint->cats as $ctg){{""}}@if($loop->first){{""}}{{$ctg->title}}{{""}}@endif{{""}}@endforeach/{{ \Carbon\Carbon::now()->locale('ru')->isoFormat('YYYY-MM-DD') }}" class="btn btn-lg btn-primary btn-lead">Записаться</a>
                     @else
                     @endif
                 </div>
