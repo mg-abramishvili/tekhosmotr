@@ -35,6 +35,7 @@ class NewLead extends Mailable
             'category' => $this->lead->category,
             'name' => $this->lead->name,
             'phone' => $this->lead->phone,
+            'osago' => $this->lead->osago,
         ]);
     }
 }

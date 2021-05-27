@@ -1704,6 +1704,15 @@
                         <span class="phone_error text-danger"></span>
                     </div>
 
+                    <div class="form-group">
+                        <label>Нужен ли полис ОСАГО</label>
+                        <select name="osago" class="custom-select">
+                            <option value="Нет">Нет</option>
+                            <option value="Да">Да</option>
+                        </select>
+                        <span class="osago_error text-danger"></span>
+                    </div>
+
                     <!--<div class="form-group">
                         <label>Продолжительность</label>
                         <input type="text" class="form-control" name="duration">
@@ -1774,6 +1783,7 @@
             var category = $('select[name=category] option:selected').text();
             var name = $('input[name=name]').val();
             var phone = $('input[name=phone]').val();
+            var osago = $('select[name=osago] option:selected').val();
             var duration = $('input[name=duration]').val();
 
             $('.flash-success').hide();
@@ -1784,6 +1794,7 @@
             $('.category_error').hide();
             $('.name_error').hide();
             $('.phone_error').hide();
+            $('.osago_error').hide();
             $('.duration_error').hide();
 
             $.ajax({
@@ -1799,6 +1810,7 @@
                     category: category,
                     name: name,
                     phone: phone,
+                    osago: osago,
                     duration: duration,
                 },
 

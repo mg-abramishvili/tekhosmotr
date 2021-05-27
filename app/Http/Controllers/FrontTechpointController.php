@@ -82,6 +82,7 @@ class FrontTechpointController extends Controller
         $leads->category = $data['category'];
         $leads->name = $data['name'];
         $leads->phone = $data['phone'];
+        $leads->osago = $data['osago'];
         
         if (Lead::where('n_date', '=', $request->n_date)->where('time', '=', json_encode($request->time))->exists()) {
             return 'занято';

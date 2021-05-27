@@ -217,6 +217,9 @@
                                             <div class="col-12 col-lg-6">
                                                 <p class="mt-0 mb-2"><i>Госномер:</i> <br>{{ $lead->number }}</p>
                                             </div>
+                                            <div class="col-12 col-lg-6">
+                                                <p class="mt-0 mb-2"><i>Нужен ли полис ОСАГО:</i> <br>{{ $lead->osago }}</p>
+                                            </div>
                                         </div>
                                     </li>
 

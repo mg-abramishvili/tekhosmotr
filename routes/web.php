@@ -20,6 +20,7 @@ Route::get('/', function () {
 // TECHPOINTS (BACKEND)
 Route::resource('/backend/techpoints', TechpointController::class)->middleware('auth');
 Route::get('/backend/techpoints/delete/{id}','App\Http\Controllers\TechpointController@delete')->middleware('auth');
+Route::post('/backend/techpoints/file/{method}','App\Http\Controllers\TechpointController@file');
 
 // PAGES (BACKEND)
 Route::resource('/backend/pages', PageController::class)->middleware('auth');

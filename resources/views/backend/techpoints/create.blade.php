@@ -311,6 +311,16 @@
                 @endif
             </div>
 
+            <div class="form-group">
+                <label class="font-weight-bold">Аттестат</label>
+                <input class="docpic" type="file" name="docpic">
+            </div>
+
+            <div class="form-group">
+                <label class="font-weight-bold">Доп. услуги</label>
+                <textarea name="dopus" id="dopus" class="form-control"></textarea>
+            </div>
+
             @if(auth()->user()->id == '1')
             <div class="form-group">
                 <label class="font-weight-bold">Кнопка записи</label>
@@ -330,5 +340,83 @@
             <button type="submit" class="btn btn-lg btn-success">Сохранить</button>
         </form>
     </div>
+
+    <script>
+        FilePond.registerPlugin(FilePondPluginImagePreview);
+        FilePond.registerPlugin(FilePondPluginFileValidateType);
+
+        $('.docpic').filepond({
+            allowMultiple: false,
+            allowReorder: false,
+            acceptedFileTypes: ['image/jpeg'],
+            imagePreviewHeight: 140,
+            labelIdle: 'Нажмите для загрузки файлов',
+            labelFileProcessing: 'Загрузка',
+            labelFileProcessingComplete: 'Загружено',
+            labelTapToCancel: '',
+            labelTapToUndo: '',
+
+            server: {
+                remove: (filename, load) => {
+                    load('1');
+                    return  ajax_delete('deletedocpic');
+
+                },
+                process: (fieldName, file, metadata, load, error, progress, abort, transfer, options) => {
+                    const formData = new FormData();
+                    formData.append(fieldName, file, file.name);
+                    const request = new XMLHttpRequest();
+                    request.open('POST', '/backend/techpoints/file/upload');
+                    request.upload.onprogress = (e) => {
+                        progress(e.lengthComputable, e.loaded, e.total);
+                    };
+                    request.onload = function() {
+                        if (request.status >= 200 && request.status < 300) {
+                            load(request.responseText);
+                        }
+                        else {
+                            error('oh no');
+                        }
+                    };
+                    request.send(formData);
+                    return {
+                        abort: () => {
+                            request.abort();
+                            abort();
+                        }
+                    };
+                },
+                revert: (filename, load) => {
+                    load(filename)
+                },
+                load: (source, load, error, progress, abort, headers) => {
+                    var myRequest = new Request(source);
+                    fetch(myRequest).then(function(response) {
+                        response.blob().then(function(myBlob) {
+                            load(myBlob)
+                        });
+                    });
+                },
+            },
+        });
+
+        function ajax_delete(methos){
+            $.ajax({
+                url:'/backend/techpoints/file/'+methos,
+                method:'POST'
+            });
+        }
+    </script>
+
+    <script>
+        $('textarea[id="dopus"]').summernote({
+            height: 100,
+            toolbar: [
+                ['style', ['bold', 'underline', 'clear']],
+                ['para', ['ul', 'ol']],
+                ['view', ['codeview']],
+            ],
+        });
+    </script>
 
 @endsection

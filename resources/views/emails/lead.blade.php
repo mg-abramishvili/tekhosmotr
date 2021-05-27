@@ -20,5 +20,8 @@
 <br><br>
 
 Телефон:<br>{{ $phone }}
+<br><br>
+
+Нужен ли полис ОСАГО:<br>{{ $osago }}
 
 @endcomponent

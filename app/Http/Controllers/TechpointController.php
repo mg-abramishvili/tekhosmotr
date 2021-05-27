@@ -44,6 +44,31 @@ class TechpointController extends Controller
         return redirect('/backend/techpoints');
     }
 
+    public function file($type)
+    {
+        switch ($type) {
+            case 'upload':
+                return $this->upload();
+        }
+        return \Response::make('success', 200, [
+            'Content-Disposition' => 'inline',
+        ]);
+    }
+
+    public function upload()
+    {
+        if (request()->file('docpic')) {
+            $file = request()->file('docpic');
+
+            $filename = md5(time() . rand(1, 100000)) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path() . '/uploads', $filename);
+
+            return \Response::make('/uploads/' . $filename, 200, [
+                'Content-Disposition' => 'inline',
+            ]);
+        }
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -67,6 +92,17 @@ class TechpointController extends Controller
         $techpoints->ogrn = $data['ogrn'];
         $techpoints->number = $data['number'];
         $techpoints->att_number = $data['att_number'];
+
+        if (!isset($data['docpic'])) {
+            $data['docpic'] = null;
+        }
+        $techpoints->docpic = $data['docpic'];
+
+        if (!isset($data['dopus'])) {
+            $data['dopus'] = null;
+        }
+        $techpoints->dopus = $data['dopus'];
+
         $techpoints->working_hours_start = $data['working_hours_start'];
         $techpoints->working_hours_end = $data['working_hours_end'];
         
@@ -105,6 +141,17 @@ class TechpointController extends Controller
         $techpoints->ogrn = $data['ogrn'];
         $techpoints->number = $data['number'];
         $techpoints->att_number = $data['att_number'];
+        
+        if (!isset($data['docpic'])) {
+            $data['docpic'] = null;
+        }
+        $techpoints->docpic = $data['docpic'];
+
+        if (!isset($data['dopus'])) {
+            $data['dopus'] = null;
+        }
+        $techpoints->dopus = $data['dopus'];
+        
         $techpoints->working_hours_start = $data['working_hours_start'];
         $techpoints->working_hours_end = $data['working_hours_end'];
         
