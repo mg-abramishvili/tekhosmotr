@@ -348,7 +348,7 @@
         $('.docpic').filepond({
             allowMultiple: false,
             allowReorder: false,
-            acceptedFileTypes: ['image/jpeg'],
+            acceptedFileTypes: ['image/jpeg', 'application/pdf'],
             imagePreviewHeight: 140,
             labelIdle: 'Нажмите для загрузки файлов',
             labelFileProcessing: 'Загрузка',
