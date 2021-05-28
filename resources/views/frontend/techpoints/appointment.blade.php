@@ -35,7 +35,7 @@
                         <div class="form-group">
                             <label>Дата</label>
                             <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" name="n_date" class="custom-select" required>
-                                <option disabled selected value="none"> -- выберите дату -- </option>
+                                <option selected value="none"> -- выберите дату -- </option>
                                 @if($cat == 'M2' || $cat == 'M3')
                                     @if(json_decode($techpoint->bus_day) > 0)
                                         @foreach(json_decode($techpoint->bus_day) as $bd)
@@ -1749,7 +1749,9 @@
                 if (!$("#time option:selected").length) {
                     $('#next_step').prop('disabled', true);
                 } else {
-                    alert($('#time option:selected').val())
+                    if(!$('select[name=n_date]').val() === 'none') {
+                        $('#next_step').prop('disabled', false);
+                    }
                 }
             }, 1000);
         });
