@@ -1747,7 +1747,7 @@
         $(document).ready(function() {
             setInterval(function(){ 
                 if (!$("#time option:selected").length) {
-                    if( !$('#time').val() === 'none') {
+                    if( !$('#time option:selected').val() === 'none') {
                         $('#next_step').prop('disabled', true);
                     }
                 } else {
