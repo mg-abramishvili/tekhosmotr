@@ -1747,11 +1747,11 @@
         $(document).ready(function() {
             setInterval(function(){ 
                 if (!$("#time option:selected").length) {
-                    if( !$('#time option:selected').val() === 'none') {
-                        $('#next_step').prop('disabled', true);
-                    }
+                    $('#next_step').prop('disabled', true);
                 } else {
-                    $('#next_step').prop('disabled', false);
+                    if( !$('#time').val() === 'none' ) {
+                        $('#next_step').prop('disabled', false);
+                    }
                 }
             }, 1000);
         });
