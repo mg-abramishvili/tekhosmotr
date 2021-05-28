@@ -35,6 +35,7 @@
                         <div class="form-group">
                             <label>Дата</label>
                             <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" name="n_date" class="custom-select" required>
+                                <option disabled selected value> -- выберите дату -- </option>
                                 @if($cat == 'M2' || $cat == 'M3')
                                     @if(json_decode($techpoint->bus_day) > 0)
                                         @foreach(json_decode($techpoint->bus_day) as $bd)
@@ -44,7 +45,7 @@
                                                         {{ \Carbon\Carbon::now()->addDay(5)->locale('ru')->isoFormat('DD MMM (dd)') }}
                                                     </option>
                                                 @else
-                                                    <option disabled selected value> -- выберите дату -- </option>
+                                                    
                                                 @endif
                                             @endif
                                         @endforeach
