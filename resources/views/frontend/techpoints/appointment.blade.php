@@ -1749,7 +1749,7 @@
                 if (!$("#time option:selected").length) {
                     $('#next_step').prop('disabled', true);
                 } else {
-                    if( !$('#time').val() === 'none' ) {
+                    if( $('#time').val() !== 'none' ) {
                         $('#next_step').prop('disabled', false);
                     }
                 }
