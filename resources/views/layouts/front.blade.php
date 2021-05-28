@@ -16,7 +16,7 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/flickity.min.js"></script>
 </head>
-<body style="display: none;">
+<body>
 
     <header>
         <div class="container">
