@@ -1749,9 +1749,7 @@
                 if (!$("#time option:selected").length) {
                     $('#next_step').prop('disabled', true);
                 } else {
-                    if( $('#time option:selected').val() !== 'none' ) {
-                        $('#next_step').prop('disabled', false);
-                    }
+                    alert($('#time option:selected').val())
                 }
             }, 1000);
         });
